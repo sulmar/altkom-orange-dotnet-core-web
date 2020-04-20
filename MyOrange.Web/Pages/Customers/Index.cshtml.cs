@@ -18,7 +18,7 @@ namespace MyOrange.Web.Pages.Customers
             this.customerService = customerService;
         }
 
-        public IList<Customer> Customers{ get; set; }
+        public IList<Customer> Customers { get; set; }
 
         public void OnGet()
         {

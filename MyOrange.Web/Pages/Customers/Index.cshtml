@@ -6,3 +6,30 @@
 
 <h1>Customers</h1>
 
+<table class="table table-hover table-dark table-striped" >
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].Id)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].FirstName)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].LastName)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].Email)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].IsRemoved)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => customer.Id)</td>
+                <td>@Html.DisplayFor(m => customer.FirstName)</td>
+                <td>@Html.DisplayFor(m => customer.LastName)</td>
+                <td>@Html.DisplayFor(m => customer.Email)</td>
+                <td>@Html.DisplayFor(m => customer.IsRemoved)</td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
