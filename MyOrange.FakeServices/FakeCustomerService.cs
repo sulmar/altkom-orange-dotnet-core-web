@@ -7,7 +7,7 @@ namespace MyOrange.FakeServices
 {
     public class FakeCustomerService : ICustomerService
     {
-        private readonly IList<Customer> customers;
+        private IList<Customer> customers;
 
         public FakeCustomerService()
         {
