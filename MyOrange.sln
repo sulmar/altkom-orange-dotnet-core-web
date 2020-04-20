@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.Web", "MyOrange.Web\MyOrange.Web.csproj", "{B3AADF08-533F-4914-969C-9F5A2E7A1E3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.Models", "MyOrange.Models\MyOrange.Models.csproj", "{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3AADF08-533F-4914-969C-9F5A2E7A1E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3AADF08-533F-4914-969C-9F5A2E7A1E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3AADF08-533F-4914-969C-9F5A2E7A1E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3AADF08-533F-4914-969C-9F5A2E7A1E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8F041AE-179C-4E87-B220-E59074D840FC}
+	EndGlobalSection
+EndGlobal
