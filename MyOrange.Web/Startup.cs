@@ -6,6 +6,7 @@ using Bogus;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,6 +34,13 @@ namespace MyOrange.Web
 
             services.AddSingleton<IDocumentService, FakeDocumentService>();
             services.AddSingleton<Faker<Document>, DocumentFaker>();
+
+            services.Configure<RouteOptions>(options =>
+            {
+                options.LowercaseUrls = true; // adres url malymi literami
+                options.LowercaseQueryStrings = true; // parametry malymi literami
+                options.AppendTrailingSlash = true; // dodaje ukosnik na koniec
+            });
 
             services.AddRazorPages();
 
