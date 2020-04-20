@@ -6,6 +6,7 @@ namespace MyOrange.IServices
 
     {
         IList<TEntity> Get();
+        TEntity Get(int id);
     }
 
 }

@@ -28,11 +28,11 @@ namespace MyOrange.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<ICustomerService, FakeCustomerService>();
-            services.AddTransient<Faker<Customer>, CustomerFaker>();
+            services.AddSingleton<ICustomerService, FakeCustomerService>();
+            services.AddSingleton<Faker<Customer>, CustomerFaker>();
 
-            services.AddTransient<IDocumentService, FakeDocumentService>();
-            services.AddTransient<Faker<Document>, DocumentFaker>();
+            services.AddSingleton<IDocumentService, FakeDocumentService>();
+            services.AddSingleton<Faker<Document>, DocumentFaker>();
 
             services.AddRazorPages();
 

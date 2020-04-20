@@ -3,6 +3,7 @@ using MyOrange.IServices;
 using MyOrange.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyOrange.FakeServices
 {
@@ -18,6 +19,11 @@ namespace MyOrange.FakeServices
         public IList<Customer> Get()
         {
             return customers;
+        }
+
+        public Customer Get(int id)
+        {
+            return customers.SingleOrDefault(c => c.Id == id);
         }
     }
 

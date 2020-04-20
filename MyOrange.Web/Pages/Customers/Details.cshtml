@@ -1,0 +1,20 @@
+﻿@page "/Customers/View/{id:range(1, 100)}"
+@model MyOrange.Web.Pages.Customers.DetailsModel
+@{
+    ViewData["Title"] = "Customer Details";
+}
+
+<h1>Customer Details</h1>
+
+<h2>Customer Id @RouteData.Values["id"] </h2>
+<h2>Customer Name @RouteData.Values["name"] </h2>
+
+
+<h2>Hello @Model.Customer.FirstName @Model.Customer.LastName</h2>
+
+@*<h2>Customer Id @Request.Query["id"] </h2>*@
+
+
+<div>
+    <a class="btn btn-primary" asp-page="/Customers/Index">Back to Customers</a>
+</div>

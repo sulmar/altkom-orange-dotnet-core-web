@@ -28,6 +28,10 @@
                 <td>@Html.DisplayFor(m => customer.Email)</td>
                 <td>@Html.DisplayFor(m => customer.IsRemoved)</td>
 
+                <td>
+                    <a class="btn btn-primary" asp-page="./Details" asp-route-id="@customer.Id">View</a>
+                </td>
+
             </tr>
         }
 

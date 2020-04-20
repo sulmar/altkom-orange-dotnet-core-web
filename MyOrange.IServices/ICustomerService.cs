@@ -5,6 +5,7 @@ namespace MyOrange.IServices
 {
     public interface ICustomerService : IEntityService<Customer>
     {
+        
     }
 
 }
