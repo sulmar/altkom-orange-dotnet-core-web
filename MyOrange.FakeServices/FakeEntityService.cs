@@ -25,6 +25,11 @@ namespace MyOrange.FakeServices
         {
             return entities.SingleOrDefault(e => e.Id == id);
         }
+
+        public void Update(TEntity entity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 

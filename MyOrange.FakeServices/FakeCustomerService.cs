@@ -25,6 +25,15 @@ namespace MyOrange.FakeServices
         {
             return customers.SingleOrDefault(c => c.Id == id);
         }
+
+        public void Update(Customer entity)
+        {
+            var customer = Get(entity.Id);
+            customer.FirstName = entity.FirstName;
+            customer.LastName = entity.LastName;
+            customer.Email = entity.Email;
+            customer.IsRemoved = entity.IsRemoved;
+        }
     }
 
 

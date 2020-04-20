@@ -1,0 +1,22 @@
+﻿@page "{id:min(1)}"
+@model MyOrange.Web.Pages.Customers.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<div>
+    <form method="post">
+
+        <input type="hidden" asp-for="Customer.Id" />
+
+        <input type="text" asp-for="Customer.FirstName" placeholder="First name" />
+        <input type="text" asp-for="Customer.LastName" placeholder="Last name" />
+        <input type="email" asp-for="Customer.Email" placeholder="Last name" />
+
+        <button type="submit" class="btn btn-success">Save</button>
+
+    </form>
+</div>
+
