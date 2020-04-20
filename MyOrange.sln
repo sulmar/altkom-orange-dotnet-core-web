@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.Web", "MyOrange.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.Models", "MyOrange.Models\MyOrange.Models.csproj", "{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.IServices", "MyOrange.IServices\MyOrange.IServices.csproj", "{D99524A8-001A-4043-9DAB-E741E967F9E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.FakeServices", "MyOrange.FakeServices\MyOrange.FakeServices.csproj", "{C8B1DAD8-265E-4895-807B-6C0BF8E359B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D99524A8-001A-4043-9DAB-E741E967F9E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D99524A8-001A-4043-9DAB-E741E967F9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D99524A8-001A-4043-9DAB-E741E967F9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D99524A8-001A-4043-9DAB-E741E967F9E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B1DAD8-265E-4895-807B-6C0BF8E359B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B1DAD8-265E-4895-807B-6C0BF8E359B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B1DAD8-265E-4895-807B-6C0BF8E359B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B1DAD8-265E-4895-807B-6C0BF8E359B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
