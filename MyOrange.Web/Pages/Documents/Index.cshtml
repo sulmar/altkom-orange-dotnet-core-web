@@ -1,0 +1,33 @@
+﻿@page
+@model MyOrange.Web.Pages.Documents.IndexModel
+@{
+    ViewData["Title"] = "Documents";
+}
+
+    <h1>Documents</h1>
+
+
+<table class="table table-hover table-light table-striped">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Id)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Title)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].DocumentType)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Author)</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var document in Model.Documents)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => document.Id)</td>
+                <td>@Html.DisplayFor(m => document.Title)</td>
+                <td>@Html.DisplayFor(m => document.DocumentType)</td>
+                <td>@Html.DisplayFor(m => document.Author)</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

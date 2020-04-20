@@ -31,6 +31,9 @@ namespace MyOrange.Web
             services.AddTransient<ICustomerService, FakeCustomerService>();
             services.AddTransient<Faker<Customer>, CustomerFaker>();
 
+            services.AddTransient<IDocumentService, FakeDocumentService>();
+            services.AddTransient<Faker<Document>, DocumentFaker>();
+
             services.AddRazorPages();
         }
 
