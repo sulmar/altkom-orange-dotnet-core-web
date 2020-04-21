@@ -1,8 +1,10 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bogus;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +16,7 @@ using MyOrange.FakeServices;
 using MyOrange.FakeServices.Fakers;
 using MyOrange.IServices;
 using MyOrange.Models;
+using MyOrange.Models.Validations;
 
 namespace MyOrange.Web
 {
@@ -37,6 +40,8 @@ namespace MyOrange.Web
             services.AddSingleton<IDocumentService, FakeDocumentService>();
             services.AddSingleton<Faker<Document>, DocumentFaker>();
 
+            
+
             services.Configure<RouteOptions>(options =>
             {
                 options.LowercaseUrls = true; // adres url malymi literami
@@ -44,7 +49,16 @@ namespace MyOrange.Web
                 options.AppendTrailingSlash = true; // dodaje ukosnik na koniec
             });
 
-            services.AddRazorPages();
+            // dotnet add package FluentValidation.AspNetCore
+            // ręczna rejestracja walidatorów
+            //   services.AddTransient<IValidator<Customer>, CustomerValidator>();
+            //   services.AddTransient<IValidator<Document>, DocumentValidator>();
+
+            // automatyczna rejestracja walidatorów
+
+            services.AddRazorPages().AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<CustomerValidator>());
+
+            
 
             // services.AddRazorPages(options => options.RootDirectory = "/Content");
         }

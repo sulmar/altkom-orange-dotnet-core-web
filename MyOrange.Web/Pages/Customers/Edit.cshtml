@@ -16,6 +16,7 @@
             <div class="form-group">
                 <label asp-for="Customer.FirstName">First name</label>
                 <input type="text" asp-for="Customer.FirstName" placeholder="First name" />
+                <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
             </div>
         </div>
 
@@ -23,6 +24,7 @@
             <div class="form-group">
                 <label asp-for="Customer.LastName">Last name</label>
                 <input type="text" asp-for="Customer.LastName" placeholder="Last name" />
+                <span asp-validation-for="Customer.LastName" class="text-danger"></span>
             </div>
         </div>
 
@@ -30,6 +32,7 @@
             <div class="form-group">
                 <label asp-for="Customer.Email">E-mail</label>
                 <input type="email" asp-for="Customer.Email" placeholder="Email address" />
+                <span asp-validation-for="Customer.Email" class="text-danger"></span>
             </div>
         </div>
 
@@ -52,10 +55,14 @@
 
         <button type="submit" class="btn btn-success">Save</button>
 
+        @section Scripts {
+            <partial name="_ValidationScriptsPartial" />
+        }
+
     </form>
 
     <img src="@Model.Customer.Photo" />
-    
+
 
 </div>
 
