@@ -38,6 +38,14 @@
 
         <div class="form-row">
             <div class="form-group">
+                <label asp-for="Email">Remote E-mail</label>
+                <input type="email" asp-for="Email" placeholder="Email address" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
                 <label asp-for="Customer.Country">Country</label>
                 <select class="form-control" asp-for="Customer.Country" asp-items="Model.Countries">
                     <option value="">Choose one</option>

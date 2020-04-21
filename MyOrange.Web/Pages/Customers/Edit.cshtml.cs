@@ -31,8 +31,27 @@ namespace MyOrange.Web.Pages.Customers
 
         [BindProperty]
         public IFormFile Photo { get; set; }
-
         public SelectList Countries { get; set; }
+
+
+        [PageRemote(
+            HttpMethod = "post", 
+            PageHandler = "CheckEmail", 
+            ErrorMessage = "Email Duplicated",
+            AdditionalFields = "__RequestVerificationToken")]
+        [BindProperty]
+        public string Email { get; set; }
+
+
+        // POST 
+        public IActionResult OnPostCheckEmail()
+        {
+            var existing = new[] { "marcin.sulecki@gmail.com", "marcin.sulecki@akademia.altkom.pl", "marcin.sulecki@altkom.pl" };
+
+            var valid = !existing.Contains(Email);
+
+            return new JsonResult(valid);
+        }
 
         public IActionResult OnGet(int id)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Bogus;
@@ -7,6 +8,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
@@ -78,6 +80,12 @@ namespace MyOrange.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            // Ustawienie domyślnego języka UI
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(Configuration["CurrentUICulture"]);
+
+            // Ustawia lokalizacje na podstawie klienta
+           // app.UseRequestLocalization();
 
             app.UseRouting();
 
