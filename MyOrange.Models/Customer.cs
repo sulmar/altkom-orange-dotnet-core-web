@@ -9,6 +9,7 @@ namespace MyOrange.Models
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Country { get; set; }
+        public string Photo { get; set; }
         public bool IsRemoved { get; set; }
 
     }

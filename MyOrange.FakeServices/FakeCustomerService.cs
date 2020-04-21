@@ -50,6 +50,7 @@ namespace MyOrange.FakeServices
             customer.LastName = entity.LastName;
             customer.Email = entity.Email;
             customer.Country = entity.Country;
+            customer.Photo = entity.Photo;
             customer.IsRemoved = entity.IsRemoved;
         }
     }

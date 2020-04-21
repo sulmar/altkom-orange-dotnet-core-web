@@ -7,9 +7,10 @@
 <h1>Edit</h1>
 
 <div>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
 
         <input type="hidden" asp-for="Customer.Id" />
+        <input type="hidden" asp-for="Customer.Photo" />
 
         <div class="form-row">
             <div class="form-group">
@@ -41,9 +42,20 @@
             </div>
         </div>
 
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Photo"></label>
+                <input type="file" asp-for="Photo" class="form-control-file" />
+            </div>
+        </div>
+
 
         <button type="submit" class="btn btn-success">Save</button>
 
     </form>
+
+    <img src="@Model.Customer.Photo" />
+    
+
 </div>
 

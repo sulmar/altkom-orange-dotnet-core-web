@@ -17,6 +17,7 @@ namespace MyOrange.FakeServices.Fakers
             RuleFor(p => p.LastName, f => f.Person.LastName);
             RuleFor(p => p.Email, f => f.Person.Email);
             RuleFor(p => p.Country, f => f.Address.Country());
+            RuleFor(p => p.Photo, f => f.Person.Avatar);
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.3f));
 
         }
