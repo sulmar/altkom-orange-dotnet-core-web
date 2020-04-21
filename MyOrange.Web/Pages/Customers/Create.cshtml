@@ -1,7 +1,7 @@
 ﻿@page
 @model MyOrange.Web.Pages.Customers.CreateModel
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create";    
 }
 
 <h1>Create</h1>
@@ -36,7 +36,7 @@
     <div class="form-row">
         <div class="form-group">
             <label asp-for="Customer.Country">Country</label>
-            <select class="form-control" asp-for="Customer.Country" asp-items="Model.Countries">
+            <select class="form-control" asp-for="Customer.Country" asp-items="@Model.Countries">
                 <option value="">Choose one</option>
             </select>
         </div>
@@ -49,12 +49,11 @@
         </div>
     </div>
 
-
     <button type="submit" class="btn btn-success btn-block">Save</button>
     <a class="btn btn-primary btn-block" asp-page="Index">Cancel</a>
 
-    @section Scripts {
+    @*@section Scripts {
         <partial name="_ValidationScriptsPartial" />
-    }
+    }*@
 
 </form>

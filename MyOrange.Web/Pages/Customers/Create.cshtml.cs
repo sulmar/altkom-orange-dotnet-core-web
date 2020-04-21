@@ -24,6 +24,7 @@ namespace MyOrange.Web.Pages.Customers
 
         [BindProperty]
         public IFormFile Photo { get; set; }
+
         public SelectList Countries { get; set; }
 
         public CreateModel(ICustomerService customerService, ICountryService countryService, IWebHostEnvironment webHostEnvironment)
@@ -35,7 +36,7 @@ namespace MyOrange.Web.Pages.Customers
 
         public void OnGet()
         {
-            Countries = new SelectList(countryService.Get());
+             Countries = new SelectList(countryService.Get());
         }
 
         public IActionResult OnPost()
