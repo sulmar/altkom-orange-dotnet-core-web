@@ -7,6 +7,7 @@ namespace MyOrange.IServices
     public interface ICustomerService : IEntityService<Customer>
     {
         IList<Customer> Get(string country, string firstName);
+        
     }
 
 }

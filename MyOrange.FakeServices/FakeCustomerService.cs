@@ -43,6 +43,11 @@ namespace MyOrange.FakeServices
             return query.ToList();
         }
 
+        public void Remove(int id)
+        {
+            customers.Remove(Get(id));
+        }
+
         public void Update(Customer entity)
         {
             var customer = Get(entity.Id);

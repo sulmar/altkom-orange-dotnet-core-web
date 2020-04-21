@@ -1,0 +1,16 @@
+﻿@page "{id}"
+@model MyOrange.Web.Pages.Customers.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="alert alert-danger">
+    <h5>Are you sure delete customer @Model.Customer.FirstName @Model.Customer.LastName ?</h5>
+
+    <form method="post">
+        <button type="submit" class="btn btn-danger btn-block">Yes</button> 
+        <a class="btn btn-primary btn-block" asp-page="/Customers/Index">No</a>
+    </form>
+
+</div>
+
