@@ -32,6 +32,8 @@ namespace MyOrange.Web
             services.AddSingleton<ICustomerService, FakeCustomerService>();
             services.AddSingleton<Faker<Customer>, CustomerFaker>();
 
+            services.AddSingleton<ICountryService, FakeCountryService>();
+
             services.AddSingleton<IDocumentService, FakeDocumentService>();
             services.AddSingleton<Faker<Document>, DocumentFaker>();
 

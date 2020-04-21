@@ -13,7 +13,7 @@ namespace MyOrange.FakeServices
 
         public FakeCustomerService(Faker<Customer> faker)
         {
-            customers = faker.Generate(20);
+            customers = faker.Generate(100);
         }
 
         public IList<Customer> Get()
@@ -26,12 +26,30 @@ namespace MyOrange.FakeServices
             return customers.SingleOrDefault(c => c.Id == id);
         }
 
+        public IList<Customer> Get(string country, string firstName)
+        {
+            IQueryable<Customer> query = customers.AsQueryable();
+
+            if (!string.IsNullOrEmpty(country))
+            {
+                query = query.Where(c => c.Country == country);
+            }
+
+            if (!string.IsNullOrEmpty(firstName))
+            {
+                query = query.Where(c => c.FirstName == firstName);
+            }
+
+            return query.ToList();
+        }
+
         public void Update(Customer entity)
         {
             var customer = Get(entity.Id);
             customer.FirstName = entity.FirstName;
             customer.LastName = entity.LastName;
             customer.Email = entity.Email;
+            customer.Country = entity.Country;
             customer.IsRemoved = entity.IsRemoved;
         }
     }

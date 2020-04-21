@@ -6,13 +6,29 @@
 
 <h1>Customers</h1>
 
-<table class="table table-hover table-light table-striped" >
+
+<!-- Panel search -->
+<form method="get">
+    <div class="input-group">
+        <input type="text" class="form-control" asp-for="FirstName" placeholder="First name" />
+        <input type="text" class="form-control" asp-for="Country" placeholder="Country" />
+        <div>
+            <button class="btn btn-primary" type="submit">Search</button>
+            <button class="btn btn-primary" type="reset">Clear</button>
+        </div>
+    </div>
+</form>
+
+
+<!-- Customers -->
+<table class="table table-hover table-light table-striped">
     <thead>
         <tr>
             <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].Id)</th>
             <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].FirstName)</th>
             <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].LastName)</th>
             <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].Email)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].Country)</th>
             <th scope="col">@Html.DisplayNameFor(m => m.Customers[0].IsRemoved)</th>
         </tr>
     </thead>
@@ -26,10 +42,12 @@
                 <td>@Html.DisplayFor(m => customer.FirstName)</td>
                 <td>@Html.DisplayFor(m => customer.LastName)</td>
                 <td>@Html.DisplayFor(m => customer.Email)</td>
+                <td>@Html.DisplayFor(m => customer.Country)</td>
                 <td>@Html.DisplayFor(m => customer.IsRemoved)</td>
 
                 <td>
                     <a class="btn btn-primary" asp-page="./Details" asp-route-id="@customer.Id">View</a>
+                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@customer.Id">Edit</a>
                 </td>
 
             </tr>

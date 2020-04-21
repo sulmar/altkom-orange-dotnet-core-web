@@ -11,9 +11,36 @@
 
         <input type="hidden" asp-for="Customer.Id" />
 
-        <input type="text" asp-for="Customer.FirstName" placeholder="First name" />
-        <input type="text" asp-for="Customer.LastName" placeholder="Last name" />
-        <input type="email" asp-for="Customer.Email" placeholder="Last name" />
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Customer.FirstName">First name</label>
+                <input type="text" asp-for="Customer.FirstName" placeholder="First name" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Customer.LastName">Last name</label>
+                <input type="text" asp-for="Customer.LastName" placeholder="Last name" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Customer.Email">E-mail</label>
+                <input type="email" asp-for="Customer.Email" placeholder="Email address" />
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Customer.Country">Country</label>
+                <select class="form-control" asp-for="Customer.Country" asp-items="Model.Countries">
+                    <option value="">Choose one</option>
+                </select>
+            </div>
+        </div>
+
 
         <button type="submit" class="btn btn-success">Save</button>
 

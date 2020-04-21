@@ -9,9 +9,17 @@ using MyOrange.Models;
 
 namespace MyOrange.Web.Pages.Customers
 {
+
+    [BindProperties(SupportsGet = true)]
     public class IndexModel : PageModel
     {
         private readonly ICustomerService customerService;
+
+        //[BindProperty(SupportsGet = true)]
+        public string Country { get; set; }
+
+        //[BindProperty(SupportsGet = true)]
+        public string FirstName { get; set; }
 
         public IndexModel(ICustomerService customerService)
         {
@@ -22,7 +30,15 @@ namespace MyOrange.Web.Pages.Customers
 
         public void OnGet()
         {
-            Customers = customerService.Get();
+            if (string.IsNullOrEmpty(Country) && string.IsNullOrEmpty(FirstName))
+            {
+                Customers = customerService.Get();
+            }
+            else
+            {
+                Customers = customerService.Get(Country, FirstName);
+            }
+
         }
     }
 }

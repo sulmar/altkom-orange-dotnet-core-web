@@ -11,10 +11,12 @@ namespace MyOrange.FakeServices.Fakers
         // snippet: ctor + 2 x tab
         public CustomerFaker()
         {
+            StrictMode(true);
             RuleFor(p => p.Id, f => f.IndexFaker + 1);
             RuleFor(p => p.FirstName, f => f.Person.FirstName);
             RuleFor(p => p.LastName, f => f.Person.LastName);
             RuleFor(p => p.Email, f => f.Person.Email);
+            RuleFor(p => p.Country, f => f.Address.Country());
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.3f));
 
         }
