@@ -55,7 +55,6 @@ namespace MyOrange.Web
             //   services.AddTransient<IValidator<Document>, DocumentValidator>();
 
             // automatyczna rejestracja walidatorów
-
             services.AddRazorPages().AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<CustomerValidator>());
 
             
