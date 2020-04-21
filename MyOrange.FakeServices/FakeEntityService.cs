@@ -16,6 +16,12 @@ namespace MyOrange.FakeServices
             entities = faker.Generate(20);
         }
 
+        public void Add(TEntity entity)
+        {
+            entity.Id = entities.Max(e => e.Id) + 1;
+            entities.Add(entity);
+        }
+
         public IList<TEntity> Get()
         {
             return entities;

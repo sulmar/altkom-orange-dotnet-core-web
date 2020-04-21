@@ -16,6 +16,12 @@ namespace MyOrange.FakeServices
             customers = faker.Generate(100);
         }
 
+        public void Add(Customer customer)
+        {
+            customer.Id = customers.Max(e => e.Id) + 1;
+            customers.Add(customer);
+        }
+
         public IList<Customer> Get()
         {
             return customers;

@@ -1,0 +1,60 @@
+﻿@page
+@model MyOrange.Web.Pages.Customers.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="form-row">
+        <div class="form-group">
+            <label asp-for="Customer.FirstName">First name</label>
+            <input type="text" asp-for="Customer.FirstName" placeholder="First name" />
+            <span asp-validation-for="Customer.FirstName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label asp-for="Customer.LastName">Last name</label>
+            <input type="text" asp-for="Customer.LastName" placeholder="Last name" />
+            <span asp-validation-for="Customer.LastName" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label asp-for="Customer.Email">E-mail</label>
+            <input type="email" asp-for="Customer.Email" placeholder="Email address" />
+            <span asp-validation-for="Customer.Email" class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="form-row">
+        <div class="form-group">
+            <label asp-for="Customer.Country">Country</label>
+            <select class="form-control" asp-for="Customer.Country" asp-items="Model.Countries">
+                <option value="">Choose one</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label asp-for="Photo"></label>
+            <input type="file" asp-for="Photo" class="form-control-file" />
+        </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-success btn-block">Save</button>
+    <a class="btn btn-primary btn-block" asp-page="Index">Cancel</a>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+</form>
