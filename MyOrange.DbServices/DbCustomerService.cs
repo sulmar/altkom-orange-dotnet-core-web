@@ -3,6 +3,7 @@ using MyOrange.IServices;
 using MyOrange.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -28,6 +29,9 @@ namespace MyOrange.DbServices
         public void Add(Customer entity)
         {
             customers.Add(entity);
+
+            var entities = context.ChangeTracker.Entries();
+           
             context.SaveChanges();
         }
 
@@ -63,8 +67,16 @@ namespace MyOrange.DbServices
             // Customer customer = Get(id);
 
             Customer customer = new Customer { Id = id };
+
+            Trace.WriteLine(context.Entry(customer).State);
+
             context.Customers.Remove(customer);
+
+            Trace.WriteLine(context.Entry(customer).State);
+
             context.SaveChanges();
+
+            Trace.WriteLine(context.Entry(customer).State);
         }
 
         public void Update(Customer entity)
