@@ -73,7 +73,7 @@ namespace MyOrange.Web.Pages.Customers
 
         }
 
-        public void OnPostSavePreferences()
+        public IActionResult OnPostSavePreferences()
         {
             if (Notify)
             {
@@ -83,6 +83,25 @@ namespace MyOrange.Web.Pages.Customers
             {
                 Message = "You have turned off email notifications";
             }
+
+            return RedirectToPage("Details", new { id = Customer.Id, message = Message });
+        }
+
+        public IActionResult OnPostSavePreferencesTemp()
+        {
+            if (Notify)
+            {
+                Message = "You have turned on email notifications";
+            }
+            else
+            {
+                Message = "You have turned off email notifications";
+            }
+
+            TempData["message"] = Message;
+            TempData["messagetemp"] = Message;
+
+            return RedirectToPage("Details", new { id = Customer.Id });
         }
 
         public IActionResult OnPost()

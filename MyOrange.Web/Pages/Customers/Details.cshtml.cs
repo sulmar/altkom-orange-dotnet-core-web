@@ -15,6 +15,12 @@ namespace MyOrange.Web.Pages.Customers
 
         public Customer Customer { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string Message { get; set; }
+
+        [TempData]
+        public string MessageTemp { get; set; }
+
         public DetailsModel(ICustomerService customerService)
         {
             this.customerService = customerService;
@@ -22,7 +28,7 @@ namespace MyOrange.Web.Pages.Customers
 
         public void OnGet(int id)
         {
-            Customer = customerService.Get(id);
+            Customer = customerService.Get(id);            
         }
     }
 }

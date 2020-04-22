@@ -22,6 +22,27 @@
 </div>
 
 
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <div class="alert alert-primary">
+        @Model.Message
+    </div>
+}
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-dark">
+        @TempData["message"]
+    </div>
+}
+
+@if (Model.MessageTemp != null)
+{
+    <div class="alert alert-info">
+        @Model.MessageTemp
+    </div>
+}
+
 <div>
     <a class="btn btn-primary" asp-page="/Customers/Index">Back to Customers</a>
 </div>

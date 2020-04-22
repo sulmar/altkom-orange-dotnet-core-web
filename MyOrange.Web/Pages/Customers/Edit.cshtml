@@ -6,18 +6,28 @@
 
 <h1>Edit</h1>
 
-    <form method="post" asp-page-handler="SavePreferences">
-        <div class="form-check">
-            <input id="notify" type="checkbox" asp-for="Notify" class="form-check-input" />
-            <label for="notify" class="form-check-label">Send email</label>
-        </div>
+<form method="post" asp-page-handler="SavePreferences">
+    <div class="form-check">
+        <input id="notify" type="checkbox" asp-for="Notify" class="form-check-input" />
+        <label for="notify" class="form-check-label">Send email</label>
+    </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Save Preferences</button>
-    </form>
+    <button type="submit" class="btn btn-primary btn-block">Save Preferences</button>
+</form>
 
 <div class="alert alert-primary">
     @Model.Message
 </div>
+
+<form method="post" asp-page-handler="SavePreferencesTemp">
+    <div class="form-check">
+        <input id="notifytemp" type="checkbox" asp-for="Notify" class="form-check-input" />
+        <label for="notifytemp" class="form-check-label">Send email</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block">Save Preferences Temp</button>
+</form>
+
 
 <div>
     <form method="post" enctype="multipart/form-data" asp-page-handler="OnPost">
