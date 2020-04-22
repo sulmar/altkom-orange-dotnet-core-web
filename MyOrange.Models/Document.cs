@@ -13,5 +13,7 @@ namespace MyOrange.Models
         public string Author { get; set; }
         public DocumentType DocumentType { get; set; }
         public long Size { get; set; }
+        public Customer Customer { get; set; }
+        public ICollection<DocumentDetail> Details { get; set; }
     }
 }
