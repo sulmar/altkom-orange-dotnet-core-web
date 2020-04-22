@@ -1,4 +1,4 @@
-﻿@page "{id:min(1)}"
+﻿@page "{id:min(1)}/{handler?}"
 @model MyOrange.Web.Pages.Customers.EditModel
 @{
     ViewData["Title"] = "Edit";
@@ -6,8 +6,21 @@
 
 <h1>Edit</h1>
 
+    <form method="post" asp-page-handler="SavePreferences">
+        <div class="form-check">
+            <input id="notify" type="checkbox" asp-for="Notify" class="form-check-input" />
+            <label for="notify" class="form-check-label">Send email</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Save Preferences</button>
+    </form>
+
+<div class="alert alert-primary">
+    @Model.Message
+</div>
+
 <div>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" asp-page-handler="OnPost">
 
         <input type="hidden" asp-for="Customer.Id" />
         <input type="hidden" asp-for="Customer.Photo" />
@@ -60,7 +73,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-success">Save</button>
+        <button type="submit" class="btn btn-success btn-block">Save</button>
         <a class="btn btn-primary btn-block" asp-page="Index">Cancel</a>
 
         @section Scripts {

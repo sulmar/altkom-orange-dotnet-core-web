@@ -30,8 +30,13 @@ namespace MyOrange.Web.Pages.Customers
         public Customer Customer { get; set; }
 
         [BindProperty]
+        public bool Notify { get; set; }
+
+        [BindProperty]
         public IFormFile Photo { get; set; }
         public SelectList Countries { get; set; }
+
+        public string Message { get; set; }
 
 
         [PageRemote(
@@ -66,6 +71,18 @@ namespace MyOrange.Web.Pages.Customers
 
             return Page();
 
+        }
+
+        public void OnPostSavePreferences()
+        {
+            if (Notify)
+            {
+                Message = "You have turned on email notifications";
+            }
+            else
+            {
+                Message = "You have turned off email notifications";
+            }
         }
 
         public IActionResult OnPost()
