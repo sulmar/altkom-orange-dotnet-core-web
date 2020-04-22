@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyOrange.DbServices;
 using MyOrange.FakeServices;
 using MyOrange.FakeServices.Fakers;
 using MyOrange.IServices;
@@ -22,6 +24,29 @@ using MyOrange.Models.Validations;
 
 namespace MyOrange.Web
 {
+    public static class MyServicesExtensions
+    {
+        public static IServiceCollection AddFakeServices(this IServiceCollection services)
+        {
+            services.AddSingleton<ICustomerService, FakeCustomerService>();
+            services.AddSingleton<Faker<Customer>, CustomerFaker>();
+
+            services.AddSingleton<ICountryService, FakeCountryService>();
+
+            services.AddSingleton<IDocumentService, FakeDocumentService>();
+            services.AddSingleton<Faker<Document>, DocumentFaker>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddDbServices(this IServiceCollection services)
+        {
+            services.AddScoped<ICustomerService, DbCustomerService>();
+
+            return services;
+        }
+    }
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -34,14 +59,8 @@ namespace MyOrange.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ICustomerService, FakeCustomerService>();
-            services.AddSingleton<Faker<Customer>, CustomerFaker>();
-
-            services.AddSingleton<ICountryService, FakeCountryService>();
-
-            services.AddSingleton<IDocumentService, FakeDocumentService>();
-            services.AddSingleton<Faker<Document>, DocumentFaker>();
-
+            // services.AddFakeServices();
+            services.AddDbServices();
 
             services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(30));
 
@@ -52,6 +71,10 @@ namespace MyOrange.Web
                 options.AppendTrailingSlash = true; // dodaje ukosnik na koniec
             });
 
+
+            services.AddDbContextPool<MyOrangeContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("MyOrangeConnection")));
+
             // dotnet add package FluentValidation.AspNetCore
             // ręczna rejestracja walidatorów
             //   services.AddTransient<IValidator<Customer>, CustomerValidator>();
@@ -60,7 +83,7 @@ namespace MyOrange.Web
             // automatyczna rejestracja walidatorów
             services.AddRazorPages().AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<CustomerValidator>());
 
-            
+
 
             // services.AddRazorPages(options => options.RootDirectory = "/Content");
         }
@@ -79,7 +102,7 @@ namespace MyOrange.Web
                 app.UseHsts();
             }
 
-            
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
@@ -90,7 +113,7 @@ namespace MyOrange.Web
             CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(Configuration["CurrentUICulture"]);
 
             // Ustawia lokalizacje na podstawie klienta
-           // app.UseRequestLocalization();
+            // app.UseRequestLocalization();
 
             app.UseRouting();
 

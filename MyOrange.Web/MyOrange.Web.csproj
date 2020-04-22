@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyOrange.DbServices\MyOrange.DbServices.csproj" />
     <ProjectReference Include="..\MyOrange.FakeServices\MyOrange.FakeServices.csproj" />
     <ProjectReference Include="..\MyOrange.IServices\MyOrange.IServices.csproj" />
   </ItemGroup>
