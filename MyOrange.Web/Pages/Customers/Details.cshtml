@@ -8,18 +8,7 @@
 
 @*<h2>Customer Id @Request.Query["id"] </h2>*@
 
-<div class="card shadow mb-4">
-    <div class="card-header">
-        <h6 class="text-primary">Overview</h6>
-    </div>
-
-    <div class="col-md-8">
-        <div class="card-body">
-            <h3 class="card-title">@Model.Customer.FirstName @Model.Customer.LastName</h3>
-            <p class="card-text">@Model.Customer.Email</p>
-        </div>
-    </div>
-</div>
+<partial name="_CustomerViewPartial" model="@Model.Customer" view-data="ViewData" />
 
 
 @if (!string.IsNullOrEmpty(Model.Message))

@@ -4,6 +4,8 @@
     ViewData["Title"] = "Delete";
 }
 
+<partial name="_CustomerViewPartial" model="@Model.Customer" view-data="ViewData" />
+
 <div class="alert alert-danger">
     <h5>Are you sure delete customer @Model.Customer.FirstName @Model.Customer.LastName ?</h5>
 

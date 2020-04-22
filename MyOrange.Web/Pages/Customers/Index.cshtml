@@ -55,6 +55,8 @@
                     <a class="btn btn-primary" asp-page="./Details" asp-route-id="@customer.Id">View</a>
                     <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@customer.Id">Edit</a>
                     <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@customer.Id">Delete</a>
+                    <a class="btn btn-success" data-toggle="modal" data-target="#myModal" 
+                       asp-route-id="@customer.Id">Popup</a>
                 </td>
 
             </tr>
@@ -62,3 +64,25 @@
 
     </tbody>
 </table>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Content -->
+        <div class="modal-content">
+            <div class="modal-header">Header </div>
+            <div class="modal-body">                
+                @*<partial name="Details" />*@
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Ok</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
