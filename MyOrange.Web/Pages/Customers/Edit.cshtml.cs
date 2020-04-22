@@ -101,6 +101,8 @@ namespace MyOrange.Web.Pages.Customers
             TempData["message"] = Message;
             TempData["messagetemp"] = Message;
 
+            HttpContext.Session.SetString("key1", Message);
+
             return RedirectToPage("Details", new { id = Customer.Id });
         }
 

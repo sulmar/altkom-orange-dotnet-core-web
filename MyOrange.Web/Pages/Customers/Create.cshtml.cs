@@ -37,6 +37,9 @@ namespace MyOrange.Web.Pages.Customers
         public void OnGet()
         {
              Countries = new SelectList(countryService.Get());
+            // niezłe
+            // todo:
+
         }
 
         public IActionResult OnPost()

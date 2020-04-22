@@ -43,6 +43,14 @@
     </div>
 }
 
+@if (Model.MessageSession != null)
+{
+    <div class="alert alert-success">
+        @Model.MessageSession
+    </div>
+}
+
+
 <div>
     <a class="btn btn-primary" asp-page="/Customers/Index">Back to Customers</a>
 </div>

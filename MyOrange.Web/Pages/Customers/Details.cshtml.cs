@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MyOrange.IServices;
 using MyOrange.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace MyOrange.Web.Pages.Customers
 {
@@ -17,9 +18,11 @@ namespace MyOrange.Web.Pages.Customers
 
         [BindProperty(SupportsGet = true)]
         public string Message { get; set; }
-
+        
         [TempData]
         public string MessageTemp { get; set; }
+
+        public string MessageSession { get; set; }
 
         public DetailsModel(ICustomerService customerService)
         {
@@ -28,7 +31,20 @@ namespace MyOrange.Web.Pages.Customers
 
         public void OnGet(int id)
         {
-            Customer = customerService.Get(id);            
+            MessageSession = HttpContext.Session.GetString("key1");
+            //HttpContext.Session.Remove("key1");
+            //HttpContext.Session.Clear();
+
+            Customer = customerService.Get(id);
+
+            var message = TempData.Peek("MessageTemp");
+
+            TempData.Keep("MessageTemp");
+            TempData.Remove("MessageTemp");
+
+            TempData.Keep();
+            TempData.Clear();
+
         }
     }
 }

@@ -42,7 +42,8 @@ namespace MyOrange.Web
             services.AddSingleton<IDocumentService, FakeDocumentService>();
             services.AddSingleton<Faker<Document>, DocumentFaker>();
 
-            
+
+            services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(30));
 
             services.Configure<RouteOptions>(options =>
             {
@@ -78,8 +79,12 @@ namespace MyOrange.Web
                 app.UseHsts();
             }
 
+            
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSession();
 
             // Ustawienie domyślnego języka UI
             CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(Configuration["CurrentUICulture"]);
