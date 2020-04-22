@@ -43,6 +43,8 @@ namespace MyOrange.Web
         {
             services.AddScoped<ICustomerService, DbCustomerService>();
 
+            services.AddSingleton<ICountryService, FakeCountryService>();
+
             return services;
         }
     }
