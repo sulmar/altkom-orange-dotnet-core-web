@@ -30,7 +30,7 @@ namespace MyOrange.Web
 
                 var context = services.GetRequiredService<MyOrangeContext>();
 
-                context.Database.EnsureDeleted();
+                // context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
             }
         }
