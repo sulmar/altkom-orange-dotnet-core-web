@@ -8,6 +8,7 @@ namespace MyOrange.DbServices
 {
 
     // dotnet add package Microsoft.EntityFrameworkCore
+    // dotnet add package Microsoft.EntityFrameworkCore.Tools
     public class MyOrangeContext : DbContext
     {
         public MyOrangeContext(DbContextOptions options) : base(options)
