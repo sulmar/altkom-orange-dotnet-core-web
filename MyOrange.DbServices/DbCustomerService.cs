@@ -31,7 +31,7 @@ namespace MyOrange.DbServices
             customers.Add(entity);
 
             var entities = context.ChangeTracker.Entries();
-           
+
             context.SaveChanges();
         }
 
@@ -84,14 +84,35 @@ namespace MyOrange.DbServices
             // context.Customers.Attach(entity);
             // context.Entry(entity).State = EntityState.Modified;
 
+            // TransactionScope
+
             try
             {
-                context.Customers.Update(entity);
-                context.SaveChanges();
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        context.Customers.Update(entity);
+                        context.SaveChanges();
+
+                        context.Customers.Update(entity);
+                        context.SaveChanges();
+
+                        transaction.Commit();
+
+                    }
+                    catch (Exception)
+                    {
+                        transaction.Rollback();
+                    }
+
+
+                }
 
             }
-            catch(DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException)
             {
+
                 // TODO: obsluga
             }
         }
