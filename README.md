@@ -22,6 +22,6 @@
 - ``` Update-Database -script ``` - wygenerowanie skryptu do aktualizacji bazy danych do najnowszej wersji
 - ``` Update-Database ``` - aktualizacja bazy danych do najnowszej wersji
 - ``` Update-Database -verbose ``` - aktualizacja bazy danych do najnowszej wersji + wyświetlanie logu
-- ``` Update-Database {migration} ``` - aktualizacja bazy danych do podanej 
+- ``` Update-Database -migration {migration} ``` - aktualizacja bazy danych do podanej 
 - ``` Scaffold-DbContext {connectionstring} Microsoft. Models ``` - wygenerowanie modelu na podstawie bazy danych
 
