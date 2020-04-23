@@ -20,6 +20,7 @@ namespace MyOrange.Models
         public string Country { get; set; }
         public string Photo { get; set; }
         public bool IsRemoved { get; set; }
+        public byte[] RowVersion { get; set; }
 
         public object this[string propertyName]
         {
