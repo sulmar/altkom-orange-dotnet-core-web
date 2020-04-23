@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyOrange.IServices;
 using MyOrange.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -121,6 +122,19 @@ namespace MyOrange.DbServices
         {
             customer[propertyName] = value;
             context.Entry(customer).Property(propertyName).IsModified = true;
+            context.SaveChanges();
+        }
+
+        // string json = @"{'LastName': Novak, 'IsRemoved': true }
+
+        public void UpdatePatch(int id, string json)
+        {
+            Customer customer = new Customer { Id = id };
+
+            // dotnet add package Newtonsoft.Json
+            JsonConvert.PopulateObject(json, customer);
+
+            context.Customers.Update(customer);
             context.SaveChanges();
         }
     }
