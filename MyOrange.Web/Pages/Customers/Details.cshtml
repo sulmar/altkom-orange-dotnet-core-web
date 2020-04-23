@@ -10,6 +10,7 @@
 
 <partial name="_CustomerViewPartial" model="@Model.Customer" view-data="ViewData" />
 
+<customer-card customer="@Model.Customer"></customer-card>
 
 @if (!string.IsNullOrEmpty(Model.Message))
 {
