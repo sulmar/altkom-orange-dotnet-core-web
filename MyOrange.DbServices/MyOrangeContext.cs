@@ -12,6 +12,7 @@ namespace MyOrange.DbServices
     {
         public MyOrangeContext(DbContextOptions options) : base(options)
         {
+            this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public DbSet<Customer> Customers { get; set; }

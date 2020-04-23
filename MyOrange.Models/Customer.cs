@@ -21,5 +21,12 @@ namespace MyOrange.Models
         public string Photo { get; set; }
         public bool IsRemoved { get; set; }
 
+        public object this[string propertyName]
+        {
+            get => GetType().GetProperty(propertyName).GetValue(this);
+
+            set => GetType().GetProperty(propertyName).SetValue(this, value, null);
+        }
+
     }
 }

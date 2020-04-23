@@ -81,10 +81,16 @@ namespace MyOrange.DbServices
 
         public void Update(Customer entity)
         {
-            context.Customers.Update(entity);
+            // context.Customers.Attach(entity);
             // context.Entry(entity).State = EntityState.Modified;
-            // context.Entry(entity).Property(p => p.IsRemoved).IsModified = true;
+            context.Customers.Update(entity);
+            context.SaveChanges();
+        }
 
+        public void UpdatePatch(Customer customer, string propertyName, string value)
+        {
+            customer[propertyName] = value;
+            context.Entry(customer).Property(propertyName).IsModified = true;
             context.SaveChanges();
         }
     }
