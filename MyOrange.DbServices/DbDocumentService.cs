@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Dapper.Contrib.Extensions;
 using MyOrange.IServices;
 using MyOrange.Models;
 using System;
@@ -28,9 +29,16 @@ namespace MyOrange.DbServices
 
         public IList<Document> Get()
         {
-            string sql = "select * from dbo.Documents";
+            string sql = "select d.*, c.Id, c.FirstName from dbo.Documents as d left outer join dbo.Customers as c on d.CustomerId = c.Id";
 
-            var documents = connection.Query<Document>(sql).ToList();
+            // var documents = connection.Query<Document>(sql).ToList();
+
+            var documents = connection.Query<Document, Customer, Document>(sql, (document, customer) =>
+            {
+                document.Customer = customer;
+                return document;
+            })
+            .ToList();
 
             return documents;
         }
@@ -56,6 +64,28 @@ namespace MyOrange.DbServices
         // https://dapper-tutorial.net/update
         public void Update(Document entity)
         {
+            // manual
+            UpdateManual(entity);
+
+            // automat
+            UpdateAuto(entity);
+
+        }
+
+        private void UpdateAuto(Document entity)
+        {
+            using (var transaction = connection.BeginTransaction())
+            {
+                // dotnet add package Dapper.Contrib
+                connection.Update(entity, transaction);
+
+                connection.Update(entity, transaction);
+
+            }
+        }
+
+        private void UpdateManual(Document entity)
+        {
             string sql = "update dbo.Documents set Title = @Title, Description = @Description where Id = @DocumentId";
 
             using (var transaction = connection.BeginTransaction())
@@ -65,12 +95,11 @@ namespace MyOrange.DbServices
                     connection.Execute(sql, new { @DocumentId = entity.Id, @Title = entity.Title, @Description = entity.Description });
                     transaction.Commit();
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     transaction.Rollback();
                 }
             }
-
         }
     }
 }

@@ -13,7 +13,7 @@
             <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Id)</th>
             <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Title)</th>
             <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].DocumentType)</th>
-            <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Author)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Customer.FirstName)</th>
         </tr>
     </thead>
 
@@ -25,7 +25,7 @@
                 <td>@Html.DisplayFor(m => document.Id)</td>
                 <td>@Html.DisplayFor(m => document.Title)</td>
                 <td>@Html.DisplayFor(m => document.DocumentType)</td>
-                <td>@Html.DisplayFor(m => document.Author)</td>
+                <td>@Html.DisplayFor(m => document.Customer.FirstName)</td>
             </tr>
         }
 
