@@ -7,6 +7,7 @@ namespace MyOrange.Fakers
     {
         public DocumentFaker()
         {
+            UseSeed(1);
             RuleFor(p => p.Id, f => f.IndexFaker + 1);
             RuleFor(p => p.Title, f => f.System.FileName());
             RuleFor(p => p.Description, f => f.Lorem.Sentence());

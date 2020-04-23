@@ -27,8 +27,8 @@ namespace MyOrange.DbServices.Configurations
             // [DatabaseGenerator(DatabasseGenerationOptions.Computed)]
 
             DocumentFaker documentFaker = new DocumentFaker();
-
-           // builder.HasData()
+            var documents = documentFaker.Generate(20);
+            builder.HasData(documents);
 
         }
     }
