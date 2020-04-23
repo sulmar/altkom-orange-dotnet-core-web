@@ -22,6 +22,7 @@ namespace MyOrange.DbServices
         {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new DocumentConfiguration());
+            modelBuilder.ApplyConfiguration(new DocumentDetailConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
