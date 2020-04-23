@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.Web", "MyOrange.Web\MyOrange.Web.csproj", "{B3AADF08-533F-4914-969C-9F5A2E7A1E3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.Web", "MyOrange.Web\MyOrange.Web.csproj", "{B3AADF08-533F-4914-969C-9F5A2E7A1E3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.Models", "MyOrange.Models\MyOrange.Models.csproj", "{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.Models", "MyOrange.Models\MyOrange.Models.csproj", "{8B98A7D8-D76E-4E5E-BB98-B155865D3B0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.IServices", "MyOrange.IServices\MyOrange.IServices.csproj", "{D99524A8-001A-4043-9DAB-E741E967F9E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.IServices", "MyOrange.IServices\MyOrange.IServices.csproj", "{D99524A8-001A-4043-9DAB-E741E967F9E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.FakeServices", "MyOrange.FakeServices\MyOrange.FakeServices.csproj", "{C8B1DAD8-265E-4895-807B-6C0BF8E359B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.FakeServices", "MyOrange.FakeServices\MyOrange.FakeServices.csproj", "{C8B1DAD8-265E-4895-807B-6C0BF8E359B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.DbServices", "MyOrange.DbServices\MyOrange.DbServices.csproj", "{66CB2370-2E89-4060-BCAD-AAE3AF315E23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.DbServices", "MyOrange.DbServices\MyOrange.DbServices.csproj", "{66CB2370-2E89-4060-BCAD-AAE3AF315E23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.Fakers", "MyOrange.Fakers\MyOrange.Fakers.csproj", "{ACD9DD16-99AE-4E63-8360-006B1A192B85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{66CB2370-2E89-4060-BCAD-AAE3AF315E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66CB2370-2E89-4060-BCAD-AAE3AF315E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66CB2370-2E89-4060-BCAD-AAE3AF315E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACD9DD16-99AE-4E63-8360-006B1A192B85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD9DD16-99AE-4E63-8360-006B1A192B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACD9DD16-99AE-4E63-8360-006B1A192B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD9DD16-99AE-4E63-8360-006B1A192B85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

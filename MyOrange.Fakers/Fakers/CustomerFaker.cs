@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyOrange.FakeServices.Fakers
+namespace MyOrange.Fakers
 {
     public class CustomerFaker : Faker<Customer>
     {

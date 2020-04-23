@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,13 +12,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyOrange.DbServices;
 using MyOrange.FakeServices;
-using MyOrange.FakeServices.Fakers;
+using MyOrange.Fakers;
 using MyOrange.IServices;
 using MyOrange.Models;
 using MyOrange.Models.Validations;
@@ -42,6 +44,7 @@ namespace MyOrange.Web
         public static IServiceCollection AddDbServices(this IServiceCollection services)
         {
             services.AddScoped<ICustomerService, DbCustomerService>();
+            services.AddScoped<IDocumentService, DbDocumentService>();
 
             services.AddSingleton<ICountryService, FakeCountryService>();
 
@@ -76,6 +79,9 @@ namespace MyOrange.Web
 
             services.AddDbContextPool<MyOrangeContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("MyOrangeConnection")));
+
+            services.AddScoped<IDbConnection>(options => new SqlConnection(Configuration.GetConnectionString("MyOrangeConnection")));
+
 
             // dotnet add package FluentValidation.AspNetCore
             // ręczna rejestracja walidatorów

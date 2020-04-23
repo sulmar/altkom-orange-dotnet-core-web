@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using MyOrange.Fakers;
 using MyOrange.Models;
 
 namespace MyOrange.DbServices.Configurations
@@ -24,6 +25,10 @@ namespace MyOrange.DbServices.Configurations
             builder.Property(p => p.UpdatedOn)
                 .ValueGeneratedOnUpdate();
             // [DatabaseGenerator(DatabasseGenerationOptions.Computed)]
+
+            DocumentFaker documentFaker = new DocumentFaker();
+
+           // builder.HasData()
 
         }
     }

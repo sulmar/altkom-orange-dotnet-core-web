@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using MyOrange.Models;
 
-namespace MyOrange.FakeServices.Fakers
+namespace MyOrange.Fakers
 {
     public class DocumentFaker : Faker<Document>
     {
