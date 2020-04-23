@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyOrange.Web.TagHelpers
 {
+
     public class CustomerCardTagHelper : TagHelper
     {
         public Customer Customer { get; set; }

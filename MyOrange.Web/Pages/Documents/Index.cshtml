@@ -14,6 +14,7 @@
             <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Title)</th>
             <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].DocumentType)</th>
             <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].Customer.FirstName)</th>
+            <th scope="col">@Html.DisplayNameFor(m => m.Documents[0].UpdatedOn)</th>
         </tr>
     </thead>
 
@@ -26,6 +27,7 @@
                 <td>@Html.DisplayFor(m => document.Title)</td>
                 <td>@Html.DisplayFor(m => document.DocumentType)</td>
                 <td>@Html.DisplayFor(m => document.Customer.FirstName)</td>
+                <td><time-since compare-date-time="@document.UpdatedOn"></time-since></td>
             </tr>
         }
 

@@ -23,6 +23,7 @@ using MyOrange.Fakers;
 using MyOrange.IServices;
 using MyOrange.Models;
 using MyOrange.Models.Validations;
+using MyOrange.Web.TagHelpers;
 
 namespace MyOrange.Web
 {
@@ -64,6 +65,8 @@ namespace MyOrange.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ITimeSinceService, TimeSinceService>();
+
             // services.AddFakeServices();
             services.AddDbServices();
 
