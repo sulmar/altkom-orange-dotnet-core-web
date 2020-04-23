@@ -12,6 +12,9 @@
 
 <customer-card customer="@Model.Customer"></customer-card>
 
+@await Component.InvokeAsync("CustomerCard", Model.Customer);
+
+
 @if (!string.IsNullOrEmpty(Model.Message))
 {
     <div class="alert alert-primary">
