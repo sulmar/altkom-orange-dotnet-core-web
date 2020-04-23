@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyOrange.DbServices;
 
 namespace MyOrange.DbServices.Migrations
 {
     [DbContext(typeof(MyOrangeContext))]
-    partial class MyOrangeContextModelSnapshot : ModelSnapshot
+    [Migration("20200423095743_AddTriggerToCustomer")]
+    partial class AddTriggerToCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

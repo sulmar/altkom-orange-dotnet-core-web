@@ -17,6 +17,9 @@ namespace MyOrange.DbServices.Configurations
             builder.Property(p => p.Country).HasMaxLength(50);
             builder.Property(p => p.Photo).HasMaxLength(250);
 
+
+            // builder.HasData()
+
             builder.Property(p => p.RowVersion).IsRowVersion().IsConcurrencyToken();
         }
     }
