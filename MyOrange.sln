@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.Fakers", "MyOrange
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.PrimaryHub", "MyOrange.Hub\MyOrange.PrimaryHub.csproj", "{7FD58993-1A39-44B1-9B86-711FE307034D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.WorkerService", "MyOrange.WorkerService\MyOrange.WorkerService.csproj", "{6927A565-5146-48E7-9137-2EE71AE5ABA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{7FD58993-1A39-44B1-9B86-711FE307034D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FD58993-1A39-44B1-9B86-711FE307034D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FD58993-1A39-44B1-9B86-711FE307034D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6927A565-5146-48E7-9137-2EE71AE5ABA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6927A565-5146-48E7-9137-2EE71AE5ABA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6927A565-5146-48E7-9137-2EE71AE5ABA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6927A565-5146-48E7-9137-2EE71AE5ABA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

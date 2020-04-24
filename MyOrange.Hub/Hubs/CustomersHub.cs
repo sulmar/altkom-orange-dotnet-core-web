@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.Primitives;
 using MyOrange.Models;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,16 @@ namespace MyOrange.PrimaryHub.Hubs
     {
         public override async Task OnConnectedAsync()
         {
-
+            if (this.Context.GetHttpContext().Request.Headers.TryGetValue("Grupa", out StringValues groups))
+            {
+                foreach (var group in groups)
+                {
+                    await this.Groups.AddToGroupAsync(Context.ConnectionId, group);
+                }
+                
+            }
           //  Context.User.
-            await this.Groups.AddToGroupAsync(Context.ConnectionId, "GrupaA");
+            
         }
 
         public async Task JoinRoom(string room)
