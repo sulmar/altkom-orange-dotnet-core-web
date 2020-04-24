@@ -24,6 +24,7 @@ using MyOrange.IServices;
 using MyOrange.Models;
 using MyOrange.Models.Validations;
 using MyOrange.Web.TagHelpers;
+using Microsoft.AspNetCore.Server.IISIntegration;
 
 namespace MyOrange.Web
 {
@@ -86,6 +87,8 @@ namespace MyOrange.Web
             services.AddScoped<IDbConnection>(options => new SqlConnection(Configuration.GetConnectionString("MyOrangeConnection")));
 
 
+            services.AddAuthentication(IISDefaults.AuthenticationScheme);
+
             // dotnet add package FluentValidation.AspNetCore
             // ręczna rejestracja walidatorów
             //   services.AddTransient<IValidator<Customer>, CustomerValidator>();
@@ -128,6 +131,7 @@ namespace MyOrange.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -12,6 +12,8 @@
     <a asp-page="./Create" class="btn btn-primary">Add Customer</a>
 </div>
 
+@if (User.IsInRole("Developer"))
+{
 
 <!-- Panel search -->
 <form method="get">
@@ -24,6 +26,7 @@
         </div>
     </div>
 </form>
+}
 
 
 <!-- Customers -->

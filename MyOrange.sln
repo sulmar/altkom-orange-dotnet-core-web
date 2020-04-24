@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.FakeServices", "My
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.DbServices", "MyOrange.DbServices\MyOrange.DbServices.csproj", "{66CB2370-2E89-4060-BCAD-AAE3AF315E23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.Fakers", "MyOrange.Fakers\MyOrange.Fakers.csproj", "{ACD9DD16-99AE-4E63-8360-006B1A192B85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyOrange.Fakers", "MyOrange.Fakers\MyOrange.Fakers.csproj", "{ACD9DD16-99AE-4E63-8360-006B1A192B85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyOrange.PrimaryHub", "MyOrange.Hub\MyOrange.PrimaryHub.csproj", "{7FD58993-1A39-44B1-9B86-711FE307034D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{ACD9DD16-99AE-4E63-8360-006B1A192B85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACD9DD16-99AE-4E63-8360-006B1A192B85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACD9DD16-99AE-4E63-8360-006B1A192B85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD58993-1A39-44B1-9B86-711FE307034D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD58993-1A39-44B1-9B86-711FE307034D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD58993-1A39-44B1-9B86-711FE307034D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD58993-1A39-44B1-9B86-711FE307034D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
