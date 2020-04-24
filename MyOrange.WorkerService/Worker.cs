@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MyOrange.Fakers;
+using MyOrange.Models;
 
 namespace MyOrange.WorkerService
 {
@@ -25,22 +26,30 @@ namespace MyOrange.WorkerService
         {
             CustomerFaker customerFaker = new CustomerFaker();
 
+            // dotnet add package Microsoft.AspNetCore.SignalR.Client
+            HubConnection connection = new HubConnectionBuilder()
+                .WithUrl(url)
+                .Build();
+
+            _logger.LogInformation("Connecting...");
+
+            await connection.StartAsync();
+
+            _logger.LogInformation("Connected.");
+
+        //    connection.On<Customer>("CreatedCustomer", customer => _logger.LogInformation($"Received {customer.FirstName}"));
+
             while (!stoppingToken.IsCancellationRequested)
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-                // dotnet add package Microsoft.AspNetCore.SignalR.Client
-                HubConnection connection = new HubConnectionBuilder()
-                    .WithUrl(url)
-                    .Build();
+                var customer = customerFaker.Generate();
 
-                _logger.LogInformation("Connecting...");
+                _logger.LogInformation("Sending at: {time}", DateTimeOffset.Now);
 
-                await connection.StartAsync();
+                await connection.SendAsync("CreatedCustomer", customer);
 
-                _logger.LogInformation("Connected.");
-              
-                await connection.SendAsync("CreatedCustomer", customerFaker.Generate());
+                _logger.LogInformation("Sent at: {time}", DateTimeOffset.Now);
 
                 await Task.Delay(1000, stoppingToken);
             }

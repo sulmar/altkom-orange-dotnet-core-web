@@ -35,11 +35,11 @@ namespace MyOrange.PrimaryHub.Hubs
 
         public async Task CreatedCustomer(Customer customer)
         {
-            // await this.Clients.All.SendAsync("Created", customer);
+            await this.Clients.All.SendAsync("Created", customer);
 
-            await this.Clients.Others.SendAsync("Created", customer);
+            // await this.Clients.Others.SendAsync("Created", customer);
 
-            await this.Clients.Group("GrupaA").SendAsync("Created", customer);
+            // await this.Clients.Group("GrupaA").SendAsync("Created", customer);
 
             
         }
