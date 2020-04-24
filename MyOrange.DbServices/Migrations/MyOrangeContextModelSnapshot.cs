@@ -72,6 +72,9 @@ namespace MyOrange.DbServices.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
@@ -110,222 +113,242 @@ namespace MyOrange.DbServices.Migrations
                         new
                         {
                             Id = 1,
+                            Amount = 0m,
                             Author = "Letitia Purdy",
-                            CreatedOn = new DateTime(2019, 8, 27, 19, 46, 3, 152, DateTimeKind.Local).AddTicks(472),
+                            CreatedOn = new DateTime(2019, 8, 28, 14, 35, 20, 29, DateTimeKind.Local).AddTicks(7793),
                             Description = "Et ex rerum aut rerum doloremque dolore voluptatem.",
                             DocumentType = "Pdf",
                             Size = 9899L,
                             Title = "granite.cif",
-                            UpdatedOn = new DateTime(2020, 4, 23, 5, 31, 2, 72, DateTimeKind.Local).AddTicks(2369)
+                            UpdatedOn = new DateTime(2020, 4, 24, 0, 20, 18, 947, DateTimeKind.Local).AddTicks(3217)
                         },
                         new
                         {
                             Id = 2,
+                            Amount = 0m,
                             Author = "Hosea Padberg",
-                            CreatedOn = new DateTime(2019, 8, 14, 13, 38, 29, 225, DateTimeKind.Local).AddTicks(2967),
+                            CreatedOn = new DateTime(2019, 8, 15, 8, 27, 46, 99, DateTimeKind.Local).AddTicks(1061),
                             Description = "Iste porro cumque perferendis doloribus aut vero veritatis sint cupiditate.",
                             DocumentType = "CSV",
                             Size = 2801L,
                             Title = "security_fantastic_soft_mouse_virtual.bmp",
-                            UpdatedOn = new DateTime(2020, 4, 23, 3, 1, 26, 304, DateTimeKind.Local).AddTicks(1086)
+                            UpdatedOn = new DateTime(2020, 4, 23, 21, 50, 43, 177, DateTimeKind.Local).AddTicks(9162)
                         },
                         new
                         {
                             Id = 3,
+                            Amount = 0m,
                             Author = "Dakota Bradtke",
-                            CreatedOn = new DateTime(2019, 6, 7, 23, 5, 11, 638, DateTimeKind.Local).AddTicks(4751),
+                            CreatedOn = new DateTime(2019, 6, 8, 17, 54, 28, 512, DateTimeKind.Local).AddTicks(2661),
                             Description = "Dicta aut corrupti rerum quae quia numquam dicta enim unde.",
                             DocumentType = "CSV",
                             Size = 3134L,
                             Title = "bedfordshire_back_end_incredible_metal_shirt.fcdt",
-                            UpdatedOn = new DateTime(2020, 4, 22, 17, 11, 43, 16, DateTimeKind.Local).AddTicks(2345)
+                            UpdatedOn = new DateTime(2020, 4, 23, 12, 0, 59, 890, DateTimeKind.Local).AddTicks(427)
                         },
                         new
                         {
                             Id = 4,
+                            Amount = 0m,
                             Author = "Omari Borer",
-                            CreatedOn = new DateTime(2019, 6, 22, 7, 38, 36, 755, DateTimeKind.Local).AddTicks(6527),
+                            CreatedOn = new DateTime(2019, 6, 23, 2, 27, 53, 631, DateTimeKind.Local).AddTicks(3289),
                             Description = "Rerum quia quos voluptatem veritatis totam ea iure quis.",
                             DocumentType = "Pdf",
                             Size = 175L,
                             Title = "ville.rpss",
-                            UpdatedOn = new DateTime(2020, 4, 22, 15, 44, 51, 323, DateTimeKind.Local).AddTicks(1549)
+                            UpdatedOn = new DateTime(2020, 4, 23, 10, 34, 8, 198, DateTimeKind.Local).AddTicks(8320)
                         },
                         new
                         {
                             Id = 5,
+                            Amount = 0m,
                             Author = "Dexter Kessler",
-                            CreatedOn = new DateTime(2020, 3, 29, 10, 49, 17, 672, DateTimeKind.Local).AddTicks(3567),
+                            CreatedOn = new DateTime(2020, 3, 30, 5, 38, 34, 548, DateTimeKind.Local).AddTicks(455),
                             Description = "Ullam quia consequuntur quis voluptatum consequatur.",
                             DocumentType = "Word",
                             Size = 5618L,
                             Title = "ssl.conf",
-                            UpdatedOn = new DateTime(2020, 4, 23, 8, 16, 49, 716, DateTimeKind.Local).AddTicks(7448)
+                            UpdatedOn = new DateTime(2020, 4, 24, 3, 6, 6, 592, DateTimeKind.Local).AddTicks(4333)
                         },
                         new
                         {
                             Id = 6,
+                            Amount = 0m,
                             Author = "Bobbie Stamm",
-                            CreatedOn = new DateTime(2019, 6, 26, 11, 41, 34, 794, DateTimeKind.Local).AddTicks(9351),
+                            CreatedOn = new DateTime(2019, 6, 27, 6, 30, 51, 667, DateTimeKind.Local).AddTicks(7941),
                             Description = "Ut est neque sit voluptatem magni architecto nostrum sed vitae.",
                             DocumentType = "Word",
                             Size = 9267L,
                             Title = "rustic_fresh_chips_website_invoice.z5",
-                            UpdatedOn = new DateTime(2020, 4, 22, 12, 24, 6, 723, DateTimeKind.Local).AddTicks(1637)
+                            UpdatedOn = new DateTime(2020, 4, 23, 7, 13, 23, 596, DateTimeKind.Local).AddTicks(209)
                         },
                         new
                         {
                             Id = 7,
+                            Amount = 0m,
                             Author = "Fay Leuschke",
-                            CreatedOn = new DateTime(2019, 8, 17, 14, 2, 49, 806, DateTimeKind.Local).AddTicks(9722),
+                            CreatedOn = new DateTime(2019, 8, 18, 8, 52, 6, 679, DateTimeKind.Local).AddTicks(7979),
                             Description = "Quidem labore doloremque similique et modi dolorum animi.",
                             DocumentType = "Pdf",
                             Size = 1889L,
                             Title = "senior_concept_microchip.buffer",
-                            UpdatedOn = new DateTime(2020, 4, 23, 4, 46, 27, 194, DateTimeKind.Local).AddTicks(7485)
+                            UpdatedOn = new DateTime(2020, 4, 23, 23, 35, 44, 67, DateTimeKind.Local).AddTicks(5737)
                         },
                         new
                         {
                             Id = 8,
+                            Amount = 0m,
                             Author = "Geoffrey Ritchie",
-                            CreatedOn = new DateTime(2019, 7, 28, 0, 10, 47, 459, DateTimeKind.Local).AddTicks(7011),
+                            CreatedOn = new DateTime(2019, 7, 28, 19, 0, 4, 332, DateTimeKind.Local).AddTicks(5122),
                             Description = "Dolorem cumque enim at officiis.",
                             DocumentType = "Word",
                             Size = 4774L,
                             Title = "facilitator.m4p",
-                            UpdatedOn = new DateTime(2020, 4, 22, 17, 5, 36, 202, DateTimeKind.Local).AddTicks(9356)
+                            UpdatedOn = new DateTime(2020, 4, 23, 11, 54, 53, 75, DateTimeKind.Local).AddTicks(7462)
                         },
                         new
                         {
                             Id = 9,
+                            Amount = 0m,
                             Author = "Deshawn Wuckert",
-                            CreatedOn = new DateTime(2019, 8, 16, 17, 53, 37, 441, DateTimeKind.Local).AddTicks(6938),
+                            CreatedOn = new DateTime(2019, 8, 17, 12, 42, 54, 314, DateTimeKind.Local).AddTicks(4963),
                             Description = "Eos corporis officiis facilis velit odio provident nisi autem aut.",
                             DocumentType = "Word",
                             Size = 3313L,
                             Title = "barbados_24_365_lead.mid",
-                            UpdatedOn = new DateTime(2020, 4, 22, 16, 32, 48, 96, DateTimeKind.Local).AddTicks(409)
+                            UpdatedOn = new DateTime(2020, 4, 23, 11, 22, 4, 968, DateTimeKind.Local).AddTicks(8430)
                         },
                         new
                         {
                             Id = 10,
+                            Amount = 0m,
                             Author = "Joyce Simonis",
-                            CreatedOn = new DateTime(2020, 3, 18, 10, 41, 54, 389, DateTimeKind.Local).AddTicks(7872),
+                            CreatedOn = new DateTime(2020, 3, 19, 5, 31, 11, 262, DateTimeKind.Local).AddTicks(5734),
                             Description = "Atque qui eius odio temporibus quia ut aut voluptatem minima.",
                             DocumentType = "Excel",
                             Size = 9501L,
                             Title = "orchestrate.sig",
-                            UpdatedOn = new DateTime(2020, 4, 23, 0, 25, 39, 618, DateTimeKind.Local).AddTicks(1683)
+                            UpdatedOn = new DateTime(2020, 4, 23, 19, 14, 56, 490, DateTimeKind.Local).AddTicks(9539)
                         },
                         new
                         {
                             Id = 11,
+                            Amount = 0m,
                             Author = "Jaylon O'Hara",
-                            CreatedOn = new DateTime(2020, 4, 20, 0, 57, 22, 786, DateTimeKind.Local).AddTicks(7988),
+                            CreatedOn = new DateTime(2020, 4, 20, 19, 46, 39, 659, DateTimeKind.Local).AddTicks(5822),
                             Description = "Aut nobis qui ea veritatis excepturi.",
                             DocumentType = "Pdf",
                             Size = 8897L,
                             Title = "lights_factors_cultivate.mods",
-                            UpdatedOn = new DateTime(2020, 4, 23, 3, 12, 45, 139, DateTimeKind.Local).AddTicks(7308)
+                            UpdatedOn = new DateTime(2020, 4, 23, 22, 2, 2, 12, DateTimeKind.Local).AddTicks(5141)
                         },
                         new
                         {
                             Id = 12,
+                            Amount = 0m,
                             Author = "Tressie Reichel",
-                            CreatedOn = new DateTime(2020, 2, 28, 13, 31, 36, 284, DateTimeKind.Local).AddTicks(2993),
+                            CreatedOn = new DateTime(2020, 2, 29, 8, 20, 53, 157, DateTimeKind.Local).AddTicks(591),
                             Description = "Tempora animi autem dolor officia.",
                             DocumentType = "Pdf",
                             Size = 3351L,
                             Title = "money_market_account.xpw",
-                            UpdatedOn = new DateTime(2020, 4, 22, 20, 32, 53, 454, DateTimeKind.Local).AddTicks(5524)
+                            UpdatedOn = new DateTime(2020, 4, 23, 15, 22, 10, 327, DateTimeKind.Local).AddTicks(3119)
                         },
                         new
                         {
                             Id = 13,
+                            Amount = 0m,
                             Author = "Jovanny Borer",
-                            CreatedOn = new DateTime(2019, 7, 16, 17, 59, 54, 903, DateTimeKind.Local).AddTicks(8878),
+                            CreatedOn = new DateTime(2019, 7, 17, 12, 49, 11, 776, DateTimeKind.Local).AddTicks(5644),
                             Description = "Cum corrupti esse.",
                             DocumentType = "Excel",
                             Size = 6552L,
                             Title = "outdoors.acc",
-                            UpdatedOn = new DateTime(2020, 4, 23, 10, 50, 19, 210, DateTimeKind.Local).AddTicks(3826)
+                            UpdatedOn = new DateTime(2020, 4, 24, 5, 39, 36, 83, DateTimeKind.Local).AddTicks(513)
                         },
                         new
                         {
                             Id = 14,
+                            Amount = 0m,
                             Author = "Jany Abernathy",
-                            CreatedOn = new DateTime(2019, 9, 26, 13, 56, 33, 86, DateTimeKind.Local).AddTicks(5839),
+                            CreatedOn = new DateTime(2019, 9, 27, 8, 45, 49, 959, DateTimeKind.Local).AddTicks(2576),
                             Description = "Laborum dolores quia soluta ut cupiditate ex dicta.",
                             DocumentType = "Word",
                             Size = 2170L,
                             Title = "intelligent_granite_bacon.swi",
-                            UpdatedOn = new DateTime(2020, 4, 23, 8, 14, 9, 794, DateTimeKind.Local).AddTicks(6261)
+                            UpdatedOn = new DateTime(2020, 4, 24, 3, 3, 26, 667, DateTimeKind.Local).AddTicks(2995)
                         },
                         new
                         {
                             Id = 15,
+                            Amount = 0m,
                             Author = "Jolie Huels",
-                            CreatedOn = new DateTime(2020, 3, 12, 21, 30, 48, 672, DateTimeKind.Local).AddTicks(1929),
+                            CreatedOn = new DateTime(2020, 3, 13, 16, 20, 5, 544, DateTimeKind.Local).AddTicks(8581),
                             Description = "Omnis aut soluta qui eum ipsam expedita dolores non eligendi.",
                             DocumentType = "Excel",
                             Size = 9737L,
                             Title = "meadow.iota",
-                            UpdatedOn = new DateTime(2020, 4, 22, 23, 10, 34, 81, DateTimeKind.Local).AddTicks(6975)
+                            UpdatedOn = new DateTime(2020, 4, 23, 17, 59, 50, 954, DateTimeKind.Local).AddTicks(3621)
                         },
                         new
                         {
                             Id = 16,
+                            Amount = 0m,
                             Author = "Yvonne Kunde",
-                            CreatedOn = new DateTime(2019, 7, 19, 12, 4, 55, 336, DateTimeKind.Local).AddTicks(8888),
+                            CreatedOn = new DateTime(2019, 7, 20, 6, 54, 12, 209, DateTimeKind.Local).AddTicks(5508),
                             Description = "Adipisci necessitatibus ab dicta vero blanditiis est nostrum.",
                             DocumentType = "Word",
                             Size = 8822L,
                             Title = "manors_back_end_plastic.plf",
-                            UpdatedOn = new DateTime(2020, 4, 22, 13, 59, 32, 762, DateTimeKind.Local).AddTicks(1131)
+                            UpdatedOn = new DateTime(2020, 4, 23, 8, 48, 49, 634, DateTimeKind.Local).AddTicks(7747)
                         },
                         new
                         {
                             Id = 17,
+                            Amount = 0m,
                             Author = "Lonzo Jones",
-                            CreatedOn = new DateTime(2020, 1, 26, 20, 18, 28, 297, DateTimeKind.Local).AddTicks(8980),
+                            CreatedOn = new DateTime(2020, 1, 27, 15, 7, 45, 170, DateTimeKind.Local).AddTicks(5578),
                             Description = "Sapiente est enim consequatur consequatur autem temporibus.",
                             DocumentType = "Pdf",
                             Size = 6477L,
                             Title = "burg_fantastic_concrete_bike.rmvb",
-                            UpdatedOn = new DateTime(2020, 4, 23, 1, 14, 46, 855, DateTimeKind.Local).AddTicks(4291)
+                            UpdatedOn = new DateTime(2020, 4, 23, 20, 4, 3, 728, DateTimeKind.Local).AddTicks(886)
                         },
                         new
                         {
                             Id = 18,
+                            Amount = 0m,
                             Author = "Wyatt Watsica",
-                            CreatedOn = new DateTime(2020, 2, 3, 22, 50, 32, 961, DateTimeKind.Local).AddTicks(5212),
+                            CreatedOn = new DateTime(2020, 2, 4, 17, 39, 49, 834, DateTimeKind.Local).AddTicks(1983),
                             Description = "Voluptatem placeat laudantium repellat.",
                             DocumentType = "Excel",
                             Size = 937L,
                             Title = "action_items_face_to_face.fly",
-                            UpdatedOn = new DateTime(2020, 4, 23, 9, 15, 36, 959, DateTimeKind.Local).AddTicks(3335)
+                            UpdatedOn = new DateTime(2020, 4, 24, 4, 4, 53, 832, DateTimeKind.Local).AddTicks(26)
                         },
                         new
                         {
                             Id = 19,
+                            Amount = 0m,
                             Author = "Cordie Pollich",
-                            CreatedOn = new DateTime(2020, 3, 20, 21, 30, 37, 860, DateTimeKind.Local).AddTicks(5527),
+                            CreatedOn = new DateTime(2020, 3, 21, 16, 19, 54, 733, DateTimeKind.Local).AddTicks(2196),
                             Description = "Voluptatum officia qui.",
                             DocumentType = "CSV",
                             Size = 6857L,
                             Title = "buckinghamshire.gim",
-                            UpdatedOn = new DateTime(2020, 4, 22, 18, 14, 34, 567, DateTimeKind.Local).AddTicks(9668)
+                            UpdatedOn = new DateTime(2020, 4, 23, 13, 3, 51, 440, DateTimeKind.Local).AddTicks(6332)
                         },
                         new
                         {
                             Id = 20,
+                            Amount = 0m,
                             Author = "Sigrid Cronin",
-                            CreatedOn = new DateTime(2020, 1, 14, 3, 30, 16, 902, DateTimeKind.Local).AddTicks(722),
+                            CreatedOn = new DateTime(2020, 1, 14, 22, 19, 33, 774, DateTimeKind.Local).AddTicks(7285),
                             Description = "Hic ipsam tempora rem.",
                             DocumentType = "Excel",
                             Size = 2179L,
                             Title = "xss_orchestrator.tiff",
-                            UpdatedOn = new DateTime(2020, 4, 22, 14, 13, 51, 32, DateTimeKind.Local).AddTicks(4175)
+                            UpdatedOn = new DateTime(2020, 4, 23, 9, 3, 7, 905, DateTimeKind.Local).AddTicks(734)
                         });
                 });
 
