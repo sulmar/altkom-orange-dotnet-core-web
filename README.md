@@ -25,6 +25,10 @@
 - ``` Update-Database -migration {migration} ``` - aktualizacja bazy danych do podanej 
 - ``` Scaffold-DbContext {connectionstring} Microsoft. Models ``` - wygenerowanie modelu na podstawie bazy danych
 
+## WebHost.CreateDefaultBuilder
+Co się kryje pod metodą WebHost.CreateDefaultBuilder?
+https://github.com/sulmar/altkom-dotnet-core-201910/issues/1
+
 ## Autentykacja
 ### Basic Authentication
 ### Windows Authentication
