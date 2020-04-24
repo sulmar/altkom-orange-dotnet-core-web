@@ -19,9 +19,17 @@
 ### Przydatne polecenia PMC
 - ``` Add-Migration {migration} ``` - utworzenie migracji
 - ``` Remove-Migration ``` - usunięcie ostatniej migracji
-- ``` Update-Database -script ``` - wygenerowanie skryptu do aktualizacji bazy danych do najnowszej wersji
+- ``` Script-Migration ``` - wygenerowanie skryptu do aktualizacji bazy danych do najnowszej wersji
 - ``` Update-Database ``` - aktualizacja bazy danych do najnowszej wersji
 - ``` Update-Database -verbose ``` - aktualizacja bazy danych do najnowszej wersji + wyświetlanie logu
 - ``` Update-Database -migration {migration} ``` - aktualizacja bazy danych do podanej 
 - ``` Scaffold-DbContext {connectionstring} Microsoft. Models ``` - wygenerowanie modelu na podstawie bazy danych
 
+## WebHost.CreateDefaultBuilder
+Co się kryje pod metodą WebHost.CreateDefaultBuilder?
+https://github.com/sulmar/altkom-dotnet-core-201910/issues/1
+
+## Autentykacja
+### Basic Authentication
+### Windows Authentication
+https://www.c-sharpcorner.com/article/configure-windows-authentication-in-asp-net-core/
