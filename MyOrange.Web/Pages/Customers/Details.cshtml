@@ -12,7 +12,9 @@
 
 <customer-card customer="@Model.Customer"></customer-card>
 
-@await Component.InvokeAsync("CustomerCard", Model.Customer);
+@await Component.InvokeAsync("CustomerCard", Model.Customer)
+
+<vc:customer-card customer="@Model.Customer"></vc:customer-card>
 
 
 @if (!string.IsNullOrEmpty(Model.Message))
