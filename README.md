@@ -35,5 +35,13 @@ https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/tutoria
 
 ## Autentykacja
 ### Basic Authentication
+
 ### Windows Authentication
 https://www.c-sharpcorner.com/article/configure-windows-authentication-in-asp-net-core/
+
+### OAuth 2.0 
+
+### JWT Token
+https://jwt.io
+
+
