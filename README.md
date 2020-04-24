@@ -19,7 +19,7 @@
 ### Przydatne polecenia PMC
 - ``` Add-Migration {migration} ``` - utworzenie migracji
 - ``` Remove-Migration ``` - usunięcie ostatniej migracji
-- ``` Update-Database -script ``` - wygenerowanie skryptu do aktualizacji bazy danych do najnowszej wersji
+- ``` Script-Migration ``` - wygenerowanie skryptu do aktualizacji bazy danych do najnowszej wersji
 - ``` Update-Database ``` - aktualizacja bazy danych do najnowszej wersji
 - ``` Update-Database -verbose ``` - aktualizacja bazy danych do najnowszej wersji + wyświetlanie logu
 - ``` Update-Database -migration {migration} ``` - aktualizacja bazy danych do podanej 
