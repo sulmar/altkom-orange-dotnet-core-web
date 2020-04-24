@@ -52,6 +52,15 @@ namespace MyOrange.DbServices
             return document;
         }
 
+        public IList<Document> GetByCustomer(int customerId)
+        {
+            string sql = "select * from dbo.Documents where CustomerId = @CustomerId";
+
+            var documents = connection.Query<Document>(sql, new { @CustomerId = customerId });
+
+            return documents.ToList();
+        }
+
         public void Remove(int id)
         {
             string sql = "delete from dbo.Documents where Id = @DocumentId";

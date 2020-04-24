@@ -9,9 +9,13 @@ namespace MyOrange.Web.ViewComponents
 {
     public class CustomerCardViewComponent : ViewComponent
     {
+
+
         public IViewComponentResult Invoke(Customer customer)
         {
             return View(customer);
         }
     }
+
+
 }

@@ -55,8 +55,7 @@
                     <a class="btn btn-primary" asp-page="./Details" asp-route-id="@customer.Id">View</a>
                     <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@customer.Id">Edit</a>
                     <a class="btn btn-danger" asp-page="./Delete" asp-route-id="@customer.Id">Delete</a>
-                    <a class="btn btn-success" data-toggle="modal" data-target="#myModal" 
-                       asp-route-id="@customer.Id">Popup</a>
+                    <a class="btn btn-success" data-toggle="modal" data-target="#myModal">Popup</a>
                 </td>
 
             </tr>
@@ -74,7 +73,7 @@
             <div class="modal-body">                
                 @*<partial name="Details" />*@
 
-
+                @*<vc:documents customer-id="1" ></vc:documents>*@
             </div>
 
             <div class="modal-footer">
