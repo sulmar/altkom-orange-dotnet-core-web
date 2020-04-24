@@ -13,10 +13,10 @@ namespace MyOrange.Web
         public static void Main(string[] args)
         {
             
-            // CreateHostBuilder(args).Build().Run();
+            CreateHostBuilder(args).Build().Run();
 
             // EF
-             CreateHostBuilder(args).Build().MigrateDb<MyOrangeContext>().Run();
+            // CreateHostBuilder(args).Build().MigrateDb<MyOrangeContext>().Run();
         }       
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
