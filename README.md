@@ -25,3 +25,7 @@
 - ``` Update-Database -migration {migration} ``` - aktualizacja bazy danych do podanej 
 - ``` Scaffold-DbContext {connectionstring} Microsoft. Models ``` - wygenerowanie modelu na podstawie bazy danych
 
+## Autentykacja
+### Basic Authentication
+### Windows Authentication
+https://www.c-sharpcorner.com/article/configure-windows-authentication-in-asp-net-core/
