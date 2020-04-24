@@ -29,6 +29,10 @@
 Co się kryje pod metodą WebHost.CreateDefaultBuilder?
 https://github.com/sulmar/altkom-dotnet-core-201910/issues/1
 
+## Signal-R
+Javascript Signal-R client
+https://docs.microsoft.com/en-us/aspnet/signalr/overview/getting-started/tutorial-getting-started-with-signalr
+
 ## Autentykacja
 ### Basic Authentication
 ### Windows Authentication
