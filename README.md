@@ -44,7 +44,8 @@ https://www.c-sharpcorner.com/article/configure-windows-authentication-in-asp-ne
 ### JWT Token
 https://jwt.io
 
-
+Przykład implementacji:
+https://github.com/sulmar/dotnet-core-jwt
 
 
 ## Logowanie zdarzeń (Serilog)
