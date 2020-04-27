@@ -26,6 +26,7 @@ using MyOrange.Models.Validations;
 using MyOrange.Web.TagHelpers;
 using Microsoft.AspNetCore.Server.IISIntegration;
 using Serilog;
+using MyOrange.Web.Filters;
 
 namespace MyOrange.Web
 {
@@ -72,6 +73,12 @@ namespace MyOrange.Web
             // services.AddFakeServices();
             services.AddDbServices();
 
+            services.AddTransient<IGeoService, GeoService>();
+            services.AddHttpClient("ipstack", c =>
+            {
+                c.BaseAddress = new Uri("http://api.ipstack.com/");
+            });
+
             services.AddSession(options => options.IdleTimeout = TimeSpan.FromMinutes(30));
 
             services.Configure<RouteOptions>(options =>
@@ -96,7 +103,15 @@ namespace MyOrange.Web
             //   services.AddTransient<IValidator<Document>, DocumentValidator>();
 
             // automatyczna rejestracja walidatorów
-            services.AddRazorPages().AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<CustomerValidator>());
+            services.AddRazorPages()
+                .AddMvcOptions(options =>
+                {
+                    options.Filters.Add<SerilogLoggingPageFilter>();
+                    options.Filters.Add<ModelStateValidationResourceFilterAttribute>();
+                    options.Filters.Add<GeoLoggingPageFilter>();
+                    //options.Filters.Add<ModelStateValidationPageFilter>();
+                })
+                .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<CustomerValidator>());
 
 
 
