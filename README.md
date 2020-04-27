@@ -45,6 +45,58 @@ https://www.c-sharpcorner.com/article/configure-windows-authentication-in-asp-ne
 https://jwt.io
 
 
+## Autoryzacja
+### Za pomocą atrybutów
+
+~~~ csharp
+[Authorize(Roles="Developer")]
+public class EditModel : PageModel
+{
+}
+~~~
+
+
+### Z poziomu metody
+
+~~~ csharp
+public IActionResult OnGet(int id)
+{
+    if (!User.Identity.IsAuthenticated)
+    {
+        return new UnauthorizedResult();
+    }
+
+    if (User.IsInRole("Developer"))
+    {
+        
+    }
+}
+~~~
+
+
+### Za pomocą konwencji
+Razor Pages wnosi nowy sposób - tzw. konwencje. Umożliwiają ustalanie dostępności stron i podstron w klasie Startup/
+
+~~~ csharp
+ services.AddRazorPages()
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AuthorizePage("/Privacy");
+
+                    //options.Conventions.AuthorizePage("/Customers/Index");
+                    //options.Conventions.AuthorizePage("/Customers/Edit");
+
+                    options.Conventions.AuthorizeFolder("/Customers");
+
+                    options.Conventions.AuthorizeAreaPage("MyFeature", "/Index");
+
+                    options.Conventions.AllowAnonymousToPage("/Index");
+                    options.Conventions.AllowAnonymousToFolder("/Forms");
+                }
+                )
+~~~
+
+
 
 
 ## Logowanie zdarzeń (Serilog)
@@ -237,5 +289,56 @@ dotnet add package Serilog.Sinks.Seq
 ![Seq](docs/seq.png "Seq")
 
 
+
+
+## Filtry
+
+Filtry umożliwiają wykonywanie pewnego kodu przy wywoływaniu metod w PageModel.
+
+Przykład filtru, który wzbogaca Serilog o informację o uchwycie.
+
+
+
+- Utworzenie klasy 
+
+~~~ csharp
+public class SerilogLoggingPageFilter : IPageFilter
+    {
+        private readonly IDiagnosticContext _diagnosticContext;
+        public SerilogLoggingPageFilter(IDiagnosticContext diagnosticContext)
+        {
+            _diagnosticContext = diagnosticContext;
+        }
+
+        public void OnPageHandlerExecuted(PageHandlerExecutedContext context)
+        {
+            var name = context.HandlerMethod?.Name ?? context.HandlerMethod?.MethodInfo.Name;
+            if (name != null)
+            {
+                _diagnosticContext.Set("RazorPageHandler", name);
+            }
+        }
+
+        public void OnPageHandlerExecuting(PageHandlerExecutingContext context)
+        {
+        }
+
+        public void OnPageHandlerSelected(PageHandlerSelectedContext context)
+        {
+        }
+    }
+~~~
+
+- Rejestracja
+
+~~~ csharp
+services.AddRazorPages()
+    .AddMvcOptions(options =>
+    {
+        options.Filters.Add<SerilogLoggingPageFilter>();
+    })
+~~~
+
+- W logach pojawi się dodatkowe pole _RazorPageHandler_ z informacją o uchwycie.
 
 
