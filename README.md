@@ -183,6 +183,21 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 ~~~
 
 
+### Sinks
+
+Serilog umożliwia wysyłanie informacji o logach do różnych miejsc i nazywane są **Sinks**
+
+- Dostępne pakiety
+https://github.com/serilog/serilog/wiki/Provided-Sinks
+
+
+### Enrich
+Serilog umożliwia wzbogacanie logowanych informacji o dodatkowe informacje, np. nazwa maszyny, identyfikator procesu, nazwa środowiska lub nazwa użytkownika.
+
+- Dostępne pakiety
+https://github.com/serilog/serilog/wiki/Enrichment
+
+
 ## Wizualizacja za pomocą **Seq**
 Ręczna analiza tekstowych logów może być trudna zwłaszcza jeśli chcemy uzyskać średnie w czasie, np. ilość requestów na minutę. Z pomocą przychodzi webowe narzędzie Seq.
 Seq umożliwia zbieranie danych w czasie rzeczywistym i prezentację ich w postaci tabel i wykresów.
