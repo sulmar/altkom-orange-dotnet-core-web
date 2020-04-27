@@ -52,7 +52,7 @@ Serilog umożliwia zbieranie informacji o działaniu naszej aplikacji podobnie j
 Serilog ma jednak tą zaletę, że umożliwia zapisywanie informacji w sposób strukturalny (json, xml) a nie tylko płaskiego pliku tekstowego. Dzięki temu można łatwo odczytać zmienne wartości i na ich podstawie definiować miary.
 
 
-1. Instalacja 
+- Instalacja 
 ~~~ bash
 dotnet add package Serilog.AspNetCore
 ~~~
@@ -181,3 +181,44 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 [11:45:57 INF] HTTP GET /documents/dokumenty/ responded 200 in 1611.0590 ms
 [11:57:20 INF] HTTP GET /customers/ responded 200 in 167.5039 ms
 ~~~
+
+
+## Wizualizacja za pomocą **Seq**
+Ręczna analiza tekstowych logów może być trudna zwłaszcza jeśli chcemy uzyskać średnie w czasie, np. ilość requestów na minutę. Z pomocą przychodzi webowe narzędzie Seq.
+Seq umożliwia zbieranie danych w czasie rzeczywistym i prezentację ich w postaci tabel i wykresów.
+
+
+https://datalust.co/seq
+
+1. Instalacja Seq
+
+- Windows
+https://datalust.co/download
+
+- Docker
+~~~ bash
+docker run --name seq -d --restart unless-stopped -e ACCEPT_EULA=Y -p 5341:80 datalust/seq:latest
+~~~
+ 
+2. Instalacja biblioteki do Serilog
+~~~ bash
+dotnet add package Serilog.Sinks.Seq
+~~~
+
+3. Wpis do pliku konfiguracyjnego w appsettings.json
+  
+~~~ json
+ {
+        "Name": "Seq",
+        "Args": {
+          "serverUrl": "http://localhost:5341"
+        }
+}
+~~~
+
+
+5. Uruchom swoją aplikację i przejdź do adresu http://localhost:5341, aby śledzić statystyki.
+
+
+
+
