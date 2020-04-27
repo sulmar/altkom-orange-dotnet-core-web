@@ -25,6 +25,7 @@ using MyOrange.Models;
 using MyOrange.Models.Validations;
 using MyOrange.Web.TagHelpers;
 using Microsoft.AspNetCore.Server.IISIntegration;
+using Serilog;
 
 namespace MyOrange.Web
 {
@@ -120,6 +121,8 @@ namespace MyOrange.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseSerilogRequestLogging();
 
             app.UseSession();
 

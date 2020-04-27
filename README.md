@@ -45,3 +45,139 @@ https://www.c-sharpcorner.com/article/configure-windows-authentication-in-asp-ne
 https://jwt.io
 
 
+
+
+## Logowanie zdarzeń (Serilog)
+Serilog umożliwia zbieranie informacji o działaniu naszej aplikacji podobnie jak NLog lub log4net.
+Serilog ma jednak tą zaletę, że umożliwia zapisywanie informacji w sposób strukturalny (json, xml) a nie tylko płaskiego pliku tekstowego. Dzięki temu można łatwo odczytać zmienne wartości i na ich podstawie definiować miary.
+
+
+1. Instalacja 
+~~~ bash
+dotnet add package Serilog.AspNetCore
+~~~
+
+### Konfiguracja za pomocą metod
+~~~ csharp
+public static void Main(string[] args)
+{
+    Log.Logger = new LoggerConfiguration()
+        .WriteTo.Console()
+        .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.File(new CompactJsonFormatter(), "logs/log.json")
+        .CreateLogger();
+
+	try
+    {
+        Log.Information("Application starting");
+
+        CreateHostBuilder(args).Build().Run();
+    }
+    catch (Exception ex)
+    {
+	    Log.Fatal(ex, "The application failed to start correctly.");
+    }
+    finally
+    {
+	    Log.CloseAndFlush();
+    }
+}
+~~~
+
+- Dodaj *UseSerilog()*
+~~~ csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)               
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                })
+                .UseSerilog();
+
+~~~
+
+
+### Konfiguracja za pomocą pliku konfiguracyjnego
+
+- Dodaj konfigurację Serilog do pliku _appsettings.json_
+~~~ json
+{
+  
+  "Serilog": {
+
+    "Using": [],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
+    },
+
+    "Enrich": ["FromLogContext", "WithMachineName", "WithProcessId", "WithThreadId"],
+
+    "WriteTo": [
+      {
+        "Name": "Console"
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "logs\\log.txt",
+          "outputTemplate":  "{Timestamp:G} {Message}{NewLine:1}{Exception:1}"
+        }
+      },
+
+      {
+        "Name": "File",
+        "Args": {
+          "path": "logs\\log.json",
+          "formatter": "Serilog.Formatting.Json.JsonFormatter, Serilog"
+        }
+      }
+    ]
+  },
+}
+~~~
+
+
+### Logowanie własnych informacji
+
+~~~ csharp
+
+ public class IndexModel : PageModel
+    {
+        private readonly ILogger<IndexModel> _logger;
+
+        public IndexModel(ILogger<IndexModel> logger)
+        {
+            _logger = logger;
+        }
+
+        public void OnGet()
+        {
+            _logger.LogInformation("You requested the Index page");
+        }
+    }
+~~~
+
+- Rezultat
+~~~
+[11:49:12 INF] You requested the Index page
+~~~
+
+### Logowanie informacji o żądaniach (requests)
+
+~~~ csharp 
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    app.UseSerilogRequestLogging();
+}
+~~~
+
+- Rezultat
+~~~
+[11:45:50 INF] HTTP GET / responded 200 in 243.4293 ms
+[11:45:57 INF] HTTP GET /documents/dokumenty/ responded 200 in 1611.0590 ms
+[11:57:20 INF] HTTP GET /customers/ responded 200 in 167.5039 ms
+~~~
