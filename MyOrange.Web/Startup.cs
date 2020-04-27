@@ -106,10 +106,9 @@ namespace MyOrange.Web
             services.AddRazorPages()
                 .AddMvcOptions(options =>
                 {
+                    options.Filters.Add<MyPageFilter>();
                     options.Filters.Add<SerilogLoggingPageFilter>();
-                    options.Filters.Add<ModelStateValidationResourceFilterAttribute>();
                     options.Filters.Add<GeoLoggingPageFilter>();
-                    //options.Filters.Add<ModelStateValidationPageFilter>();
                 })
                 .AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<CustomerValidator>());
 
