@@ -31,5 +31,25 @@ namespace MyOrange.Web.Pages
             DocumentsCount = documentService.GetCount();
 
         }
+
+        public void OnGetGenerate()
+        {
+
+        }
+
+        public void OnGetAction()
+        {
+
+        }
+
+        public void OnGetAnotherAction()
+        {
+
+        }
+
+        public void OnGetSomethingElseAction()
+        {
+
+        }
     }
 }

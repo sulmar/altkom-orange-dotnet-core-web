@@ -1,0 +1,27 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+
+
+@functions {
+
+    [BindProperty]
+    public string Name { get; set; }
+
+    public PageResult OnPost()
+    {
+        return Page();
+    }
+}
+
+
+<div>
+    <form method="post">
+        <div>Name: <input name="name" /></div>
+        <div><input type="submit" /></div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Name))
+    {
+        <p>Hello, @Name!</p>
+    }
+</div>

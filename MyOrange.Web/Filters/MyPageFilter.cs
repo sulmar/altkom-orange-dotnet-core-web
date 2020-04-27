@@ -26,7 +26,7 @@ namespace MyOrange.Web.Filters
 
         public void OnPageHandlerSelected(PageHandlerSelectedContext context)
         {
-            if (context.HandlerMethod.HttpMethod == "Get" && context.HandlerMethod.MethodInfo.Name == "OnGet")
+            if (context.HandlerMethod?.HttpMethod == "Get" && context.HandlerMethod.MethodInfo.Name == "OnGet")
             {
                 // code placed here will only execute if the OnGet() method has been selected
 
