@@ -234,7 +234,7 @@ dotnet add package Serilog.Sinks.Seq
 
 5. Uruchom swoją aplikację i przejdź do adresu http://localhost:5341, aby śledzić statystyki.
 
-![Seq](http://cloud.screenpresso.com/UOa8c/seq.png "Seq")
+![Seq](docs/seq.png "Seq")
 
 
 
