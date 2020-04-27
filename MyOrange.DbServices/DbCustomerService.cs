@@ -137,5 +137,10 @@ namespace MyOrange.DbServices
             context.Customers.Update(customer);
             context.SaveChanges();
         }
+
+        public int GetActive()
+        {
+            return customers.Count(c => !c.IsRemoved);
+        }
     }
 }

@@ -61,6 +61,15 @@ namespace MyOrange.DbServices
             return documents.ToList();
         }
 
+        public int GetCount()
+        {
+            string sql = "select count(*) from dbo.Documents";
+
+            var count = connection.QuerySingle<int>(sql);
+
+            return count;
+        }
+
         public void Remove(int id)
         {
             string sql = "delete from dbo.Documents where Id = @DocumentId";

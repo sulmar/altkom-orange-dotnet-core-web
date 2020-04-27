@@ -32,6 +32,11 @@ namespace MyOrange.FakeServices
             return query.ToList();
         }
 
+        public int GetActive()
+        {
+            return customers.Count(c => !c.IsRemoved);
+        }
+
         public override void Update(Customer entity)
         {
             var customer = Get(entity.Id);

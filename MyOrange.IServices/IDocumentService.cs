@@ -6,6 +6,8 @@ namespace MyOrange.IServices
     public interface IDocumentService : IEntityService<Document>
     {
         IList<Document> GetByCustomer(int customerId);
+
+        int GetCount();
     }
 
 }

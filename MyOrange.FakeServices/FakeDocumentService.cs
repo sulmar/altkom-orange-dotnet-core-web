@@ -15,6 +15,11 @@ namespace MyOrange.FakeServices
         {
             throw new System.NotImplementedException();
         }
+
+        public int GetCount()
+        {
+            return entities.Count;
+        }
     }
 
 }
