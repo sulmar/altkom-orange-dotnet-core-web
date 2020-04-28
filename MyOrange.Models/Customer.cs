@@ -13,6 +13,7 @@ namespace MyOrange.Models
         //[Required]
         //[StringLength(50, MinimumLength = 3)]
         public string LastName { get; set; }
+        public string FullName => $"{FirstName} {LastName}";
 
         //[Required]
         //[EmailAddress]

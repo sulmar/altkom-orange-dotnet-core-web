@@ -17,6 +17,8 @@ namespace MyOrange.WorkerService
 
         const string url = "http://localhost:5000/signalr/customers";
 
+        CustomerFaker customerFaker = new CustomerFaker();
+
         public Worker(ILogger<Worker> logger)
         {
             _logger = logger;
@@ -24,7 +26,6 @@ namespace MyOrange.WorkerService
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            CustomerFaker customerFaker = new CustomerFaker();
 
             // dotnet add package Microsoft.AspNetCore.SignalR.Client
             HubConnection connection = new HubConnectionBuilder()
@@ -37,7 +38,7 @@ namespace MyOrange.WorkerService
 
             _logger.LogInformation("Connected.");
 
-        //    connection.On<Customer>("CreatedCustomer", customer => _logger.LogInformation($"Received {customer.FirstName}"));
+           connection.On<Customer>("Created", customer => _logger.LogInformation($"Received {customer.FirstName}"));
 
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -45,11 +46,11 @@ namespace MyOrange.WorkerService
 
                 var customer = customerFaker.Generate();
 
-                _logger.LogInformation("Sending at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("Sending {customer} at: {time}", customer.FullName, DateTimeOffset.Now);
 
                 await connection.SendAsync("CreatedCustomer", customer);
 
-                _logger.LogInformation("Sent at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("Sent {customer} at: {time}", customer.FullName, DateTimeOffset.Now);
 
                 await Task.Delay(1000, stoppingToken);
             }
