@@ -29,7 +29,10 @@ namespace MyOrange.WorkerService
 
             // dotnet add package Microsoft.AspNetCore.SignalR.Client
             HubConnection connection = new HubConnectionBuilder()
-                .WithUrl(url)
+                .WithUrl(url, options =>
+                {
+                    options.Headers.Add("Grupa", "GrupaA");
+                })
                 .Build();
 
             _logger.LogInformation("Connecting...");

@@ -240,3 +240,54 @@ dotnet add package Serilog.Sinks.Seq
 
 
 
+## SignalR
+
+### Utworzenie Huba
+
+~~~ csharp
+public class CustomersHub : Hub
+    {
+        public override async Task OnConnectedAsync()
+        {
+            if (this.Context.GetHttpContext().Request.Headers.TryGetValue("Grupa", out StringValues groups))
+            {
+                foreach (var group in groups)
+                {
+                    await this.Groups.AddToGroupAsync(Context.ConnectionId, group);
+                }
+                
+            }            
+        }
+
+         public async Task CreatedCustomer(Customer customer)
+        {
+           
+            // Wysłanie wiadomości "Created" do grupy GrupaA
+            await this.Clients.Group("GrupaA").SendAsync("Created", customer);
+
+            
+        }
+    }
+~~~
+
+
+
+### Utworzenie klienta
+
+- Wraz z dodaniem własnego nagłówka
+
+~~~ csharp
+
+HubConnection connection = new HubConnectionBuilder()
+              .WithUrl(url, options =>
+              {
+                  options.Headers.Add("Grupa", "GrupaA");
+              })
+              .Build();
+
+          _logger.LogInformation("Connecting...");
+
+          await connection.StartAsync();
+~~~
+
+

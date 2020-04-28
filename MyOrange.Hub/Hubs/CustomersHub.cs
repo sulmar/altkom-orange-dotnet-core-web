@@ -22,9 +22,7 @@ namespace MyOrange.PrimaryHub.Hubs
                     await this.Groups.AddToGroupAsync(Context.ConnectionId, group);
                 }
                 
-            }
-          //  Context.User.
-            
+            }            
         }
 
         public async Task JoinRoom(string room)
@@ -35,11 +33,14 @@ namespace MyOrange.PrimaryHub.Hubs
 
         public async Task CreatedCustomer(Customer customer)
         {
-            await this.Clients.All.SendAsync("Created", customer);
+            // Wysłanie wiadomości "Created" do wszystkich 
+            // await this.Clients.All.SendAsync("Created", customer);
 
+            // Wysłanie wiadomości "Created" do pozostałych (oprócz nadawcy)
             // await this.Clients.Others.SendAsync("Created", customer);
 
-            // await this.Clients.Group("GrupaA").SendAsync("Created", customer);
+            // Wysłanie wiadomości "Created" do grupy GrupaA
+            await this.Clients.Group("GrupaA").SendAsync("Created", customer);
 
             
         }
