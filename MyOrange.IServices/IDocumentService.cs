@@ -8,6 +8,8 @@ namespace MyOrange.IServices
         IList<Document> GetByCustomer(int customerId);
 
         int GetCount();
+
+        IList<Document> GetByAuthor(string author);
     }
 
 }

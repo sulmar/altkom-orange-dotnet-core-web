@@ -2,6 +2,7 @@
 using MyOrange.IServices;
 using MyOrange.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyOrange.FakeServices
 {
@@ -11,9 +12,14 @@ namespace MyOrange.FakeServices
         {
         }
 
+        public IList<Document> GetByAuthor(string author)
+        {
+            return entities.Where(d => d.Author == author).ToList();
+        }
+
         public IList<Document> GetByCustomer(int customerId)
         {
-            throw new System.NotImplementedException();
+            return entities.Where(d => d.Customer.Id == customerId).ToList();
         }
 
         public int GetCount()

@@ -52,6 +52,13 @@ namespace MyOrange.DbServices
             return document;
         }
 
+        public IList<Document> GetByAuthor(string author)
+        {
+            var documents = connection.Query<Document>("spGetDocuments", new { @Author = author }, commandType: CommandType.StoredProcedure).ToList();
+
+            return documents;
+        }
+
         public IList<Document> GetByCustomer(int customerId)
         {
             string sql = "select * from dbo.Documents where CustomerId = @CustomerId";
